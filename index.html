@@ -93,6 +93,88 @@ html[data-theme="light"] .brand-mark{filter:saturate(1.6) brightness(.6)}
 @media(max-width:760px){.landing-feature-row{grid-template-columns:1fr}.showcase-card{min-height:205px}.preview-card{min-height:240px}}
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* ===== Liquid Glass (iOS 26 style) ===== */
+.lg-orbs{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.lg-orbs i{position:absolute;border-radius:50%;opacity:.42;will-change:transform;animation:lgf 20s ease-in-out infinite alternate}
+.lg-orbs i:nth-child(1){width:48vmax;height:48vmax;left:-14vmax;top:-12vmax;background:radial-gradient(circle,var(--green),transparent 70%)}
+.lg-orbs i:nth-child(2){width:42vmax;height:42vmax;right:-12vmax;top:18vh;background:radial-gradient(circle,var(--purple),transparent 70%);animation-delay:-7s}
+.lg-orbs i:nth-child(3){width:38vmax;height:38vmax;left:20vw;bottom:-16vmax;background:radial-gradient(circle,var(--mint),transparent 70%);animation-delay:-13s}
+@keyframes lgf{to{transform:translate(9vmax,7vmax) scale(1.18)}}
+.glass,.nav-pill,.menu-btn,.auth-box,.drawer-panel,.zone-tile,.landing-feature,.content-panel,.page-box,.lsw-menu,.side,.lg-card{
+ background:linear-gradient(145deg,rgba(255,255,255,.17),rgba(255,255,255,.04) 48%,rgba(255,255,255,.10))!important;
+ -webkit-backdrop-filter:blur(22px) saturate(190%) brightness(1.08);backdrop-filter:blur(22px) saturate(190%) brightness(1.08);
+ border:1px solid rgba(255,255,255,.22)!important;
+ box-shadow:inset 0 1.5px 0 rgba(255,255,255,.6),inset 0 -1.5px 0 rgba(255,255,255,.12),inset 1.5px 0 0 rgba(255,255,255,.2),inset -1.5px 0 0 rgba(255,255,255,.08),inset 0 0 30px rgba(255,255,255,.06),0 16px 44px rgba(0,0,0,.38)!important}
+.tile{-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border-color:rgba(255,255,255,.22)!important;box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(255,255,255,.1),0 14px 36px rgba(0,0,0,.34)!important}
+.tile,.landing-feature,nav.glass{position:relative}nav.glass{position:sticky}
+.lg-shine{position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(200px circle at var(--mx,30%) var(--my,0%),rgba(255,255,255,.3),transparent 62%);opacity:.65;mix-blend-mode:soft-light;transition:opacity .3s}
+.tile:active,.nav-pill:active,.menu-btn:active,.chip-btn:active,.zone-tile:active,button.primary:active{transform:scale(.95);transition:transform .22s cubic-bezier(.34,1.56,.64,1)}
+.tile,.nav-pill,.menu-btn,.zone-tile{transition:transform .35s cubic-bezier(.34,1.56,.64,1),box-shadow .3s}
+.tile:hover{transform:translateY(-3px)}
+input[type=checkbox]{-webkit-appearance:none;appearance:none;width:52px;height:32px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);position:relative;cursor:pointer;transition:background .3s;box-shadow:inset 0 2px 6px rgba(0,0,0,.4);vertical-align:middle;flex:none}
+input[type=checkbox]::after{content:"";position:absolute;top:2px;left:2px;width:26px;height:26px;border-radius:99px;background:linear-gradient(#fff,#e6ebf0);box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 1px #fff;transition:transform .38s cubic-bezier(.34,1.56,.64,1),width .2s}
+input[type=checkbox]:checked{background:var(--green)}input[type=checkbox]:checked::after{transform:translateX(20px)}
+input[type=checkbox]:active::after{width:34px}input[type=checkbox]:checked:active::after{transform:translateX(12px)}
+@media(prefers-reduced-motion:reduce){.lg-orbs i{animation:none}}
+body{background-attachment:fixed!important}footer,#customSections,main{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+/* ===== BioSpace additions ===== */
+.lsw{position:relative}.lsw .nav-pill{display:inline-flex;align-items:center;gap:6px;cursor:pointer}.lsw .nav-pill svg{width:17px;height:17px}.lsw .nav-pill b{font-size:13px}
+.lsw-menu{position:absolute;right:0;top:calc(100% + 10px);min-width:150px;border-radius:20px;padding:6px;z-index:70;display:flex;flex-direction:column;gap:2px}.lsw-menu[hidden]{display:none}
+.lsw-menu button{font:inherit;font-size:15px;text-align:left;color:var(--text);background:transparent;border:0;border-radius:14px;padding:11px 14px;cursor:pointer}.lsw-menu button.on{background:rgba(255,255,255,.16);font-weight:700}
+.navright{display:flex;align-items:center;gap:8px}
+.simulation-preview .preview-card{cursor:pointer}.sim-hint{display:block;margin-top:8px;font-size:11px;color:var(--green);letter-spacing:.08em}
+#homeSim{margin:6px 0 24px;padding:20px;border-radius:26px;position:relative}#homeSim .sim-x{position:absolute;right:14px;top:14px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.1);color:var(--text);cursor:pointer}
+#bsSlides{padding:6px 0 30px}.sl{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:16/9;max-height:440px}
+.sl-track{display:flex;height:100%;transition:transform .7s cubic-bezier(.22,1,.36,1)}.sl-s{flex:0 0 100%;position:relative;height:100%}.sl-s img{width:100%;height:100%;object-fit:cover;display:block}
+.sl-cap{position:absolute;left:14px;right:14px;bottom:14px;padding:14px 16px;border-radius:20px;background:rgba(20,24,22,.42);-webkit-backdrop-filter:blur(18px) saturate(180%);backdrop-filter:blur(18px) saturate(180%);border:1px solid rgba(255,255,255,.25);box-shadow:inset 0 1px rgba(255,255,255,.4)}.sl-cap b{display:block;font-size:17px}.sl-cap span{font-size:13px;color:#e8eee6}
+.sl-nav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.18);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;font-size:18px;cursor:pointer}.sl-nav.p{left:12px}.sl-nav.n{right:12px}
+.sl-dots{display:flex;justify-content:center;gap:7px;margin-top:12px}.sl-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.3);transition:all .35s cubic-bezier(.34,1.56,.64,1);cursor:pointer}.sl-dots i.on{width:26px;background:var(--green)}
+.ob-modal{position:fixed;inset:0;z-index:80;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:14px}.ob-modal.open{display:flex}
+.ob-box{width:min(520px,100%);max-height:92vh;overflow:auto;border-radius:28px;padding:22px}.ob-box h2{margin:0 0 4px}.ob-box p{color:var(--muted);margin:0 0 14px;font-size:14px}
+.ob-box label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}.ob-box input,.ob-box select,.ob-box textarea{width:100%;font:inherit;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);color:var(--text)}.ob-box select option{color:#111}
+.ob-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ob-act{display:flex;gap:10px;margin-top:18px}.ob-act button{flex:1;font:inherit;font-weight:700;padding:13px;border-radius:99px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.1);color:var(--text);cursor:pointer}.ob-act .go{background:linear-gradient(#d9ff8f,var(--green));color:#111;border:0}.ob-err{color:#ff9d9d;font-size:13px;min-height:18px;margin-top:8px}
+.dh{padding:16px;border-radius:26px;background:linear-gradient(135deg,rgba(90,110,255,.38),rgba(160,90,255,.22))!important;border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1.5px rgba(255,255,255,.5),0 14px 40px rgba(60,40,160,.3)}
+.dh-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.dh-chips span,.dh-chips button{font:inherit;font-size:12px;padding:5px 11px;border-radius:99px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:var(--text)}.dh-chips button{cursor:pointer;background:rgba(255,255,255,.24)}
+.an-grid .stat{border:1px solid rgba(255,255,255,.22)!important;box-shadow:inset 0 1.5px rgba(255,255,255,.45),0 10px 28px rgba(0,0,0,.3)}
+.an-grid .stat:nth-child(4n+1){background:linear-gradient(135deg,#3a6bff,#5a4bff)}.an-grid .stat:nth-child(4n+2){background:linear-gradient(135deg,#17a46a,#35c98a)}.an-grid .stat:nth-child(4n+3){background:linear-gradient(135deg,#7a46f0,#a05cff)}.an-grid .stat:nth-child(4n){background:linear-gradient(135deg,#f08a1c,#ffb04a)}
+.an-grid .stat b,.an-grid .stat span{color:#fff}
+.an-bar{height:10px}.an-bar i{background:linear-gradient(90deg,#6a8bff,#b58cff)}
+/* ===== Floating liquid-glass tab bar ===== */
+body{padding-bottom:calc(112px + env(safe-area-inset-bottom))}
+.tabbar{position:fixed;top:auto!important;right:auto;margin:0;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(430px,92%);height:66px;padding:6px;border-radius:99px;z-index:45;display:flex;touch-action:none;user-select:none;-webkit-user-select:none;
+ background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.05) 50%,rgba(255,255,255,.12));-webkit-backdrop-filter:blur(26px) saturate(200%) brightness(1.1);backdrop-filter:blur(26px) saturate(200%) brightness(1.1);border:1px solid rgba(255,255,255,.26);
+ box-shadow:inset 0 1.5px 0 rgba(255,255,255,.65),inset 0 -1.5px 0 rgba(255,255,255,.14),0 18px 44px rgba(0,0,0,.45)}
+.tabbar .ind{position:absolute;top:6px;bottom:6px;left:0;width:0;border-radius:99px;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,.14));border:1px solid rgba(255,255,255,.35);box-shadow:inset 0 1px rgba(255,255,255,.7),0 4px 14px rgba(0,0,0,.25);transition:transform .5s cubic-bezier(.34,1.45,.5,1),width .5s cubic-bezier(.34,1.45,.5,1)}
+.tabbar.drag .ind{transition:none;transform-origin:center;scale:1.08}
+.tabbar button{position:relative;z-index:1;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:none;border:0;color:var(--text);font:inherit;font-size:10.5px;font-weight:600;letter-spacing:.01em;cursor:pointer;opacity:.78;transition:opacity .25s,color .25s,transform .35s cubic-bezier(.34,1.56,.64,1)}
+.tabbar button svg{width:23px;height:23px}.tabbar button.on{opacity:1;color:var(--green)}.tabbar button:active{transform:scale(.9)}
+.tabbar button span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.chat-fab{bottom:calc(94px + env(safe-area-inset-bottom))!important;width:48px!important;height:48px!important}.chat-panel{bottom:150px!important}
+.tb-sheet{position:fixed;top:auto!important;right:auto;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translateX(-50%) scale(.9);transform-origin:bottom center;width:min(300px,86%);padding:8px;border-radius:26px;z-index:46;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .35s cubic-bezier(.34,1.56,.64,1)}
+.tb-sheet.open{opacity:1;pointer-events:auto;transform:translateX(-50%) scale(1)}.tb-sheet button{font:inherit;font-size:16px;text-align:left;color:var(--text);background:none;border:0;border-radius:18px;padding:13px 16px;cursor:pointer;display:flex;justify-content:space-between}.tb-sheet button.on{background:rgba(255,255,255,.18);font-weight:700}
+@media(min-width:900px){.tabbar{width:460px}}
+.chat-fab{background:linear-gradient(145deg,rgba(255,255,255,.28),rgba(255,255,255,.08))!important;color:var(--green)!important;border:1px solid rgba(255,255,255,.3)!important;-webkit-backdrop-filter:blur(20px) saturate(190%);backdrop-filter:blur(20px) saturate(190%);box-shadow:inset 0 1.5px rgba(255,255,255,.6),0 12px 30px rgba(0,0,0,.4)!important}
+.chat-panel{background:rgba(20,26,22,.72)!important;-webkit-backdrop-filter:blur(26px) saturate(180%);backdrop-filter:blur(26px) saturate(180%);border-color:rgba(255,255,255,.22)!important}
+/* clearer top bar + 7-tab bar */
+nav.glass{background:linear-gradient(145deg,rgba(38,50,42,.78),rgba(18,24,20,.7))!important;-webkit-backdrop-filter:blur(30px) saturate(170%)!important;backdrop-filter:blur(30px) saturate(170%)!important}
+html[data-theme="light"] nav.glass{background:linear-gradient(145deg,rgba(255,255,255,.8),rgba(232,240,228,.7))!important}
+nav.glass .lg-shine{opacity:.35}
+.tabbar{width:min(520px,95%)}.tabbar button{font-size:9.5px;gap:2px}.tabbar button svg{width:22px;height:22px}
+.chat-fab{display:none!important}.chat-panel{bottom:calc(96px + env(safe-area-inset-bottom))!important}
+.tb-h{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:8px 12px 4px}
+.tb-th{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:0 4px 6px}.tb-th button{justify-content:flex-start;gap:8px;font-size:14px;padding:10px 12px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16)}.tb-th i{font-style:normal}
+/* subject doodle background */
+.lg-subj{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden;opacity:.2}
+.lg-subj svg{position:absolute;left:0;top:0;width:calc(100% + 640px);height:calc(100% + 640px);animation:lgdrift 140s linear infinite}
+@keyframes lgdrift{to{transform:translate(-640px,-640px)}}
+.lg-subj g{fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lg-subj .b{stroke:var(--green)}.lg-subj .c{stroke:var(--mint)}.lg-subj .p{stroke:var(--purple)}.lg-subj .m{stroke:var(--text)}.lg-subj .i{stroke:var(--mint)}
+.lg-subj .f{fill:currentColor}.lg-subj .b .f,.lg-subj .p .f{fill:var(--purple)}.lg-subj .i .f{fill:var(--mint)}
+.lg-subj text.t{stroke:none;font-family:Inter,-apple-system,"Segoe UI",sans-serif;text-anchor:middle;dominant-baseline:central}
+.lg-subj .m text{fill:var(--text)}.lg-subj .i text{fill:var(--mint)}
+html[data-theme="light"] .lg-subj{opacity:.3}
+@media(prefers-reduced-motion:reduce){.lg-subj svg{animation:none}}
+
 </style>
 <script>try{document.documentElement.setAttribute("data-theme",localStorage.getItem("biospaceTheme")||"dark")}catch(e){}</script></head>
 <body>
@@ -106,15 +188,15 @@ html[data-theme="light"] .brand-mark{filter:saturate(1.6) brightness(.6)}
 <div><div class="eyebrow" id="eyebrow1">SRI LANKA · G.C.E. ADVANCED LEVEL</div><h1 id="welcomeTitle">Your A/L journey,<br><em>made clear.</em></h1><p id="welcomeDesc">A focused learning space for Biology, Chemistry, Physics, Combined Mathematics and ICT — with notes, papers, video lessons and interactive science tools in one place.</p></div>
 <div class="art glass"><div class="orb"></div><div class="ring"></div><div class="ring two"></div><div class="chip a glass">✦ A/L focused</div><div class="chip b glass">Notes · Papers · Videos</div><div class="chip c glass">Learn by exploring</div><div class="art-foot">BIOSPACE LEARNING SYSTEM</div></div>
 </div>
-<div class="heading"><div class="eyebrow" id="chooseLangEyebrow">START HERE</div><h1 id="chooseLangTitle">Choose your language</h1><p id="chooseLangDesc">Tap one language to open your learning space.</p></div>
+<div class="heading"><div class="eyebrow" id="chooseLangEyebrow">START HERE</div><h1 id="chooseLangTitle">Choose your medium</h1><p id="chooseLangDesc">Tap your medium of study to begin.</p></div>
 <div class="grid" id="languageGrid">
-<button class="tile" data-language="en"><span class="arrow">↗</span><span class="symbol">A</span><h2>English</h2><p>Learn in English</p></button>
-<button class="tile" data-language="ta"><span class="arrow">↗</span><span class="symbol">அ</span><h2>தமிழ்</h2><p>தமிழில் கற்கவும்</p></button>
-<button class="tile" data-language="si"><span class="arrow">↗</span><span class="symbol">අ</span><h2>සිංහල</h2><p>සිංහලෙන් ඉගෙන ගන්න</p></button>
+<button class="tile" data-language="en"><span class="arrow">↗</span><span class="symbol">A</span><h2>English</h2><p>English Medium</p></button>
+<button class="tile" data-language="ta"><span class="arrow">↗</span><span class="symbol">அ</span><h2>தமிழ்</h2><p>தமிழ் மொழி மூலம்</p></button>
+<button class="tile" data-language="si"><span class="arrow">↗</span><span class="symbol">අ</span><h2>සිංහල</h2><p>සිංහල මාධ්‍යය</p></button>
 </div>
 
 <div class="heading zone-h"><div class="eyebrow">STUDENT ZONE</div><h1>Your study tools</h1><p>Log in once to save your progress. The rest of BioSpace stays open to everyone.</p></div><div class="zone-grid"><button class="zone-tile" data-zone="dashboard"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><b>Dashboard</b></button><button class="zone-tile" data-zone="quiz"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 115 .5c0 1.5-2.5 2-2.5 3.5M12 17v.01"/></svg><b>Online quiz</b></button><button class="zone-tile" data-zone="flash"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="14" height="12" rx="2"/><path d="M7 3h12a2 2 0 012 2v10"/></svg><b>Flashcards</b></button><button class="zone-tile" data-zone="lab"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 001.3 2.2h12.4A1.5 1.5 0 0019.5 19L14 9V3"/><path d="M7.5 15h9"/></svg><b>Virtual lab</b></button><button class="zone-tile" data-zone="plan"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><b>Study plan</b></button><button class="zone-tile" data-zone="posters"><svg class="zi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg><b>Posters</b></button></div><div class="landing-details">
-  <div class="heading"><div class="eyebrow" id="aboutEyebrow">EXPLORE BIOSPACE</div><h1 id="aboutTitle">One space. Five subjects. More ways to learn.</h1><p id="aboutDesc">Choose your language above, then explore subject learning hubs, revision resources and interactive models built to make difficult ideas easier to understand.</p></div>
+  <div class="heading"><div class="eyebrow" id="aboutEyebrow">EXPLORE BIOSPACE</div><h1 id="aboutTitle">One space. Five subjects. More ways to learn.</h1><p id="aboutDesc">Choose your medium above, then explore subject learning hubs, revision resources and interactive models built to make difficult ideas easier to understand.</p></div>
   <div class="grid subjects showcase-grid">
     <article class="tile subject bio showcase-card"><div class="subject-art art-cell"><span>◉</span><i></i><b></b></div><h2 id="showBioTitle">Biology</h2><p id="showBioDesc">Explore cells, body systems, transport and living processes.</p></article>
     <article class="tile subject chem showcase-card"><div class="subject-art art-chem"><span>⚛</span><i></i><b></b></div><h2 id="showChemTitle">Chemistry</h2><p id="showChemDesc">Visualise atoms, bonding, reactions and solution chemistry.</p></article>
@@ -174,7 +256,7 @@ html[data-theme="light"] .brand-mark{filter:saturate(1.6) brightness(.6)}
 </section>
 </main>
 <section class="wrap" id="customSections" aria-label="Additional BioSpace information"></section>
-<footer class="wrap"><span id="footerLeft">© <span id="year"></span> BioSpace Learning Space · Created by R SF</span><span id="footerRight">Biology · Chemistry · Physics · Combined Mathematics</span><span class="foot-links"><a data-pg="about">About</a><a data-pg="creator">Creator</a><a data-pg="contact">Contact</a><a data-pg="privacy">Privacy</a></span></footer>
+<footer class="wrap"><span id="footerLeft">© <span id="year"></span> BioSpace Learning Space · Created by R. A. Safqy Ahmed · Founder of BioSpace</span><span id="footerRight">Biology · Chemistry · Physics · Combined Mathematics</span><span class="foot-links"><a data-pg="about">About</a><a data-pg="creator">Creator</a><a data-pg="contact">Contact</a><a data-pg="privacy">Privacy</a></span></footer>
 <script>
 const T={
 en:{back:"Back",step1:"STEP 1",step2:"STEP 2",chooseGrade:"Choose your grade",gradeDesc:"Select your A/L year to see the right learning resources.",grade12:"Grade 12",grade13:"Grade 13",grade12desc:"Build your foundations and master the basics.",grade13desc:"Go deeper, revise and prepare for A/L exams.",chooseSubject:"Choose a subject",subjectDesc:"Tap a subject to open its learning hub.",biology:"Biology",chemistry:"Chemistry",physics:"Physics",combined:"Combined Mathematics",biologyDesc:"Life, cells, systems and practicals.",chemistryDesc:"Atoms, reactions and experiments.",physicsDesc:"Motion, energy and the universe.",combinedDesc:"Functions, calculus and mechanics.",hubDesc:"Choose a learning area. Tap a card to open it right away.",notes:"Notes",notesDesc:"Revision notes and key concepts.",videos:"Videos",videosDesc:"Video lessons and visual explanations.",simulations:"Simulations",simDesc:"Explore interactive science models.",papers:"Past Papers",papersDesc:"Practice and exam-style questions.",lessons:"Lessons",lessonsDesc:"Organised topic-by-topic learning.",tools:"Interactive Tools",toolsDesc:"Quick tools to explore concepts.",open:"Open resource ↗",view:"View details",noResources:"No resources are available in this section yet.",lang:"English",searchVideos:"Search video lessons",sampleNote:"Study guide",demo:"Interactive learning activity",noteDesc:"A topic starter with key ideas and revision prompts. Replace or extend this sample with verified syllabus notes.",paperDesc:"Practice outline with suggested revision tasks. Add a verified paper PDF when available.",lessonDesc:"A topic overview to help you organise your revision.",simDesc2:"Use the interactive model below to change values and explore the concept.",periodic:"Periodic table (first 20 elements)",motion:"Motion explorer",osmosis:"Osmosis explorer",concentration:"Concentration mixer",quadratic:"Quadratic explorer",atomic:"Atomic structure",cells:"Cell structure",mechanics:"Mechanics",functions:"Functions and graphs",water:"Water movement",accel:"Acceleration (m/s²)",time:"Time (s)",solute:"Solute mass (g)",coefficient:"Coefficient a",elementInfo:"Select an element to inspect it.",gradeLabel:"Grade",subjectLabel:"Subject"},
@@ -187,7 +269,7 @@ let lang="en",grade="12",subject="Biology",category="Notes";
 const screens=["language","grade","subject","hub","resources"];
 function show(id){document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("active",s.id==="screen-"+id));window.scrollTo({top:0,behavior:"smooth"});}
 function tr(key){return (T[lang]&&T[lang][key])||T.en[key]||key}
-function applyLanguage(){document.documentElement.lang=lang;document.querySelectorAll("[data-t]").forEach(el=>{const key=el.dataset.t;el.textContent=tr(key)});document.querySelector("#langShort").textContent=tr("lang");document.querySelector("#navLabel").textContent=lang==="ta"?"A/L கற்றல் தளம்":lang==="si"?"A/L ඉගෙනුම් අවකාශය":"A/L LEARNING SPACE";document.querySelector("#welcomeTitle").innerHTML=lang==="ta"?"உங்கள் A/L பயணம்,<br><em>இனி தெளிவாக.</em>":lang==="si"?"ඔබේ A/L ගමන,<br><em>වඩාත් පැහැදිලිව.</em>":'Your A/L journey,<br><em>made clear.</em>';document.querySelector("#welcomeDesc").textContent=lang==="ta"?"உயிரியல், இரசாயனவியல், பௌதிகவியல் மற்றும் கூட்டுக் கணிதத்திற்கான கற்றல் தளம் — குறிப்புகள், வினாத்தாள்கள், வீடியோப் பாடங்கள் மற்றும் ஊடாடும் கருவிகள் ஒரே இடத்தில்.":lang==="si"?"ජීව විද්‍යාව, රසායන විද්‍යාව, භෞතික විද්‍යාව සහ සංයුක්ත ගණිතය සඳහා සටහන්, ප්‍රශ්න පත්‍ර, වීඩියෝ පාඩම් සහ අන්තර්ක්‍රියාකාරී මෙවලම් එකම තැනක.":T.en.welcomeDesc||"A focused learning space for Biology, Chemistry, Physics, Combined Mathematics and ICT — with notes, papers, video lessons and interactive science tools in one place.";document.querySelector("#chooseLangTitle").textContent=lang==="ta"?"மொழியைத் தேர்வு செய்க":lang==="si"?"භාෂාව තෝරන්න":"Choose your language";document.querySelector("#chooseLangDesc").textContent=lang==="ta"?"உங்கள் கற்றல் தளத்தைத் திறக்க ஒரு மொழியைத் தேர்ந்தெடுக்கவும்.":lang==="si"?"ඉගෙනුම් අවකාශය විවෘත කිරීමට භාෂාවක් තෝරන්න.":"Tap one language to open your learning space.";document.querySelector("#chooseLangEyebrow").textContent=lang==="ta"?"தொடங்குங்கள்":lang==="si"?"මෙතැනින් අරඹන්න":"START HERE";document.querySelectorAll("[data-language]").forEach(b=>{let l=b.dataset.language;b.querySelector("p").textContent=l==="en"?"Learn in English":l==="ta"?"தமிழில் கற்கவும்":"සිංහලෙන් ඉගෙන ගන්න"});applyLandingCopy();refreshCrumbs();if(document.querySelector("#screen-hub").classList.contains("active"))updateHub();if(document.querySelector("#screen-resources").classList.contains("active"))renderResources();}
+function applyLanguage(){document.documentElement.lang=lang;document.querySelectorAll("[data-t]").forEach(el=>{const key=el.dataset.t;el.textContent=tr(key)});document.querySelector("#langShort").textContent=tr("lang");document.querySelector("#navLabel").textContent=lang==="ta"?"A/L கற்றல் தளம்":lang==="si"?"A/L ඉගෙනුම් අවකාශය":"A/L LEARNING SPACE";document.querySelector("#welcomeTitle").innerHTML=lang==="ta"?"உங்கள் A/L பயணம்,<br><em>இனி தெளிவாக.</em>":lang==="si"?"ඔබේ A/L ගමන,<br><em>වඩාත් පැහැදිලිව.</em>":'Your A/L journey,<br><em>made clear.</em>';document.querySelector("#welcomeDesc").textContent=lang==="ta"?"உயிரியல், இரசாயனவியல், பௌதிகவியல் மற்றும் கூட்டுக் கணிதத்திற்கான கற்றல் தளம் — குறிப்புகள், வினாத்தாள்கள், வீடியோப் பாடங்கள் மற்றும் ஊடாடும் கருவிகள் ஒரே இடத்தில்.":lang==="si"?"ජීව විද්‍යාව, රසායන විද්‍යාව, භෞතික විද්‍යාව සහ සංයුක්ත ගණිතය සඳහා සටහන්, ප්‍රශ්න පත්‍ර, වීඩියෝ පාඩම් සහ අන්තර්ක්‍රියාකාරී මෙවලම් එකම තැනක.":T.en.welcomeDesc||"A focused learning space for Biology, Chemistry, Physics, Combined Mathematics and ICT — with notes, papers, video lessons and interactive science tools in one place.";document.querySelector("#chooseLangTitle").textContent=lang==="ta"?"கற்றல் மொழி மூலத்தைத் தேர்வு செய்க":lang==="si"?"ඔබේ මාධ්‍යය තෝරන්න":"Choose your medium";document.querySelector("#chooseLangDesc").textContent=lang==="ta"?"நீங்கள் படிக்கும் மொழி மூலத்தை (Medium) தேர்ந்தெடுக்கவும்.":lang==="si"?"ඔබ ඉගෙන ගන්නා මාධ්‍යය තෝරන්න.":"Tap your medium of study to begin.";document.querySelector("#chooseLangEyebrow").textContent=lang==="ta"?"தொடங்குங்கள் · மொழி மூலம்":lang==="si"?"මෙතැනින් අරඹන්න":"START HERE";document.querySelectorAll("[data-language]").forEach(b=>{let l=b.dataset.language;b.querySelector("p").textContent=l==="en"?"English Medium":l==="ta"?"தமிழ் மொழி மூலம்":"සිංහල මාධ්‍යය"});applyLandingCopy();refreshCrumbs();if(document.querySelector("#screen-hub").classList.contains("active"))updateHub();if(document.querySelector("#screen-resources").classList.contains("active"))renderResources();}
 function refreshCrumbs(){let s=subjectNames[lang][subject];document.querySelector("#crumbGrade").textContent=tr("gradeLabel")+" "+grade;document.querySelector("#crumbSubject").textContent=tr("gradeLabel")+" "+grade+" / "+s;document.querySelector("#crumbHub").textContent=tr("gradeLabel")+" "+grade+" / "+s;document.querySelector("#crumbResources").textContent=tr("gradeLabel")+" "+grade+" / "+s+" / "+categoryNames[lang][category];}
 document.querySelectorAll("[data-language]").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.language;applyLanguage();show("grade")}));
 document.querySelector("#langQuick").addEventListener("click",()=>show("language"));
@@ -239,7 +321,7 @@ function makeRange(label,min,max,value,onchange){let wrap=document.createElement
 
 function applyLandingCopy(){
  const copy={
- en:{aboutEyebrow:"EXPLORE BIOSPACE",aboutTitle:"One space. Five subjects. More ways to learn.",aboutDesc:"Choose your language above, then explore subject learning hubs, revision resources and interactive models built to make difficult ideas easier to understand.",showBioTitle:"Biology",showBioDesc:"Explore cells, body systems, transport and living processes.",showChemTitle:"Chemistry",showChemDesc:"Visualise atoms, bonding, reactions and solution chemistry.",showPhysTitle:"Physics",showPhysDesc:"Explore motion, waves, forces, energy and electricity.",showMathTitle:"Combined Mathematics",showMathDesc:"Practise functions, graphs, calculus and mechanics.",simEyebrow:"LEARN BY EXPLORING",simTitle:"Interactive simulations",simDesc:"Try a few examples of the interactive learning tools available inside subject hubs.",simOsmosisTitle:"Osmosis Explorer",simOsmosisDesc:"Explore how concentration differences affect water movement in a model cell.",simChemTitle:"Molecule & Concentration Tools",simChemDesc:"Inspect atoms and change solution values to understand concentration.",simPhysicsTitle:"Motion Explorer",simPhysicsDesc:"Change acceleration and time, then see how velocity changes.",simMathTitle:"Function & Graph Explorer",simMathDesc:"Adjust a coefficient and observe how a quadratic graph changes.",simBioTag:"BIOLOGY · SIMULATION",simChemTag:"CHEMISTRY · TOOLS",simPhysicsTag:"PHYSICS · SIMULATION",simMathTag:"COMBINED MATHEMATICS",featureNotesTitle:"Notes & PDFs",featureNotesDesc:"Add and access revision notes and downloadable learning files.",featureVideosTitle:"Video lessons",featureVideosDesc:"Open or watch YouTube lessons from the relevant topic page.",featurePapersTitle:"Past papers & lessons",featurePapersDesc:"Keep practice materials organised by grade and subject."},
+ en:{aboutEyebrow:"EXPLORE BIOSPACE",aboutTitle:"One space. Five subjects. More ways to learn.",aboutDesc:"Choose your medium above, then explore subject learning hubs, revision resources and interactive models built to make difficult ideas easier to understand.",showBioTitle:"Biology",showBioDesc:"Explore cells, body systems, transport and living processes.",showChemTitle:"Chemistry",showChemDesc:"Visualise atoms, bonding, reactions and solution chemistry.",showPhysTitle:"Physics",showPhysDesc:"Explore motion, waves, forces, energy and electricity.",showMathTitle:"Combined Mathematics",showMathDesc:"Practise functions, graphs, calculus and mechanics.",simEyebrow:"LEARN BY EXPLORING",simTitle:"Interactive simulations",simDesc:"Try a few examples of the interactive learning tools available inside subject hubs.",simOsmosisTitle:"Osmosis Explorer",simOsmosisDesc:"Explore how concentration differences affect water movement in a model cell.",simChemTitle:"Molecule & Concentration Tools",simChemDesc:"Inspect atoms and change solution values to understand concentration.",simPhysicsTitle:"Motion Explorer",simPhysicsDesc:"Change acceleration and time, then see how velocity changes.",simMathTitle:"Function & Graph Explorer",simMathDesc:"Adjust a coefficient and observe how a quadratic graph changes.",simBioTag:"BIOLOGY · SIMULATION",simChemTag:"CHEMISTRY · TOOLS",simPhysicsTag:"PHYSICS · SIMULATION",simMathTag:"COMBINED MATHEMATICS",featureNotesTitle:"Notes & PDFs",featureNotesDesc:"Add and access revision notes and downloadable learning files.",featureVideosTitle:"Video lessons",featureVideosDesc:"Open or watch YouTube lessons from the relevant topic page.",featurePapersTitle:"Past papers & lessons",featurePapersDesc:"Keep practice materials organised by grade and subject."},
  ta:{aboutEyebrow:"BIOSPACE-ஐ ஆராயுங்கள்",aboutTitle:"ஒரே தளம். ஐந்து பாடங்கள். பல கற்றல் வழிகள்.",aboutDesc:"மேலே மொழியைத் தேர்ந்தெடுத்து, பாடப் பகுதிகள், மீளாய்வுக் குறிப்புகள் மற்றும் கடினமான கருத்துகளை எளிதாகப் புரிந்துகொள்ள உதவும் ஊடாடும் மாதிரிகளைப் பாருங்கள்.",showBioTitle:"உயிரியல்",showBioDesc:"செல்கள், உடல் அமைப்புகள், கடத்தல் மற்றும் உயிரியல் செயல்முறைகளை ஆராயுங்கள்.",showChemTitle:"இரசாயனவியல்",showChemDesc:"அணுக்கள், பிணைப்புகள், வினைகள் மற்றும் கரைசல்களை காட்சிவழியாகப் புரிந்துகொள்ளுங்கள்.",showPhysTitle:"பௌதிகவியல்",showPhysDesc:"இயக்கம், அலைகள், விசைகள், ஆற்றல் மற்றும் மின்சாரத்தை ஆராயுங்கள்.",showMathTitle:"கூட்டுக் கணிதம்",showMathDesc:"சார்புகள், வரைபடங்கள், நுண்கணிதம் மற்றும் இயக்கவியலைப் பயிற்சி செய்யுங்கள்.",simEyebrow:"செய்து கற்றுக்கொள்ளுங்கள்",simTitle:"ஊடாடும் சிமுலேஷன்கள்",simDesc:"பாடப் பகுதிகளுக்குள் கிடைக்கும் ஊடாடும் கருவிகளின் சில எடுத்துக்காட்டுகளைப் பாருங்கள்.",simOsmosisTitle:"சவ்வூடுபரவல் ஆராய்ச்சி",simOsmosisDesc:"செல் மாதிரியில் செறிவு வேறுபாடு நீரின் நகர்வை எவ்வாறு பாதிக்கிறது என்பதை ஆராயுங்கள்.",simChemTitle:"மூலக்கூறு மற்றும் செறிவுக் கருவிகள்",simChemDesc:"அணுக்களைப் பாருங்கள்; கரைசல் மதிப்புகளை மாற்றி செறிவைப் புரிந்துகொள்ளுங்கள்.",simPhysicsTitle:"இயக்க ஆராய்ச்சி",simPhysicsDesc:"முடுக்கம் மற்றும் நேரத்தை மாற்றி திசைவேகம் எவ்வாறு மாறுகிறது எனப் பாருங்கள்.",simMathTitle:"சார்பு மற்றும் வரைபட ஆராய்ச்சி",simMathDesc:"மாறிலியை மாற்றி இருபடிச் சார்பு வரைபடம் எவ்வாறு மாறுகிறது எனப் பாருங்கள்.",simBioTag:"உயிரியல் · சிமுலேஷன்",simChemTag:"இரசாயனவியல் · கருவிகள்",simPhysicsTag:"பௌதிகவியல் · சிமுலேஷன்",simMathTag:"கூட்டுக் கணிதம்",featureNotesTitle:"குறிப்புகள் மற்றும் PDF",featureNotesDesc:"மீளாய்வுக் குறிப்புகள் மற்றும் பதிவிறக்கக்கூடிய கோப்புகளை அணுகுங்கள்.",featureVideosTitle:"வீடியோப் பாடங்கள்",featureVideosDesc:"தலைப்புக்கேற்ற YouTube பாடங்களைத் திறந்து பாருங்கள்.",featurePapersTitle:"கடந்தகால வினாத்தாள்கள் மற்றும் பாடங்கள்",featurePapersDesc:"வகுப்பு மற்றும் பாடத்தின்படி பயிற்சி வளங்களை ஒழுங்கமைக்குங்கள்."},
  si:{aboutEyebrow:"BIOSPACE ගවේෂණය කරන්න",aboutTitle:"එකම අවකාශයක විෂය පහක්, ඉගෙනුම් මාර්ග රැසක්.",aboutDesc:"ඉහළින් භාෂාව තෝරාගෙන විෂය පිටු, පුනරීක්ෂණ සම්පත් සහ අමාරු අදහස් පහසුවෙන් තේරුම් ගැනීමට උපකාරී අන්තර්ක්‍රියාකාරී ආකෘති ගවේෂණය කරන්න.",showBioTitle:"ජීව විද්‍යාව",showBioDesc:"සෛල, ශරීර පද්ධති සහ ජීව ක්‍රියාවලි ගවේෂණය කරන්න.",showChemTitle:"රසායන විද්‍යාව",showChemDesc:"පරමාණු, බන්ධන, ප්‍රතික්‍රියා සහ ද්‍රාවණ දෘශ්‍යමයව ඉගෙන ගන්න.",showPhysTitle:"භෞතික විද්‍යාව",showPhysDesc:"චලනය, තරංග, බල, ශක්තිය සහ විදුලිය ගවේෂණය කරන්න.",showMathTitle:"සංයුක්ත ගණිතය",showMathDesc:"ශ්‍රිත, ප්‍රස්තාර, කලනය සහ යාන්ත්‍ර විද්‍යාව පුහුණු වන්න.",simEyebrow:"ගවේෂණයෙන් ඉගෙන ගන්න",simTitle:"අන්තර්ක්‍රියාකාරී අනුකරණ",simDesc:"විෂය පිටු තුළ ඇති අන්තර්ක්‍රියාකාරී මෙවලම් කිහිපයක් පෙරදසුනක් ලෙස බලන්න.",simOsmosisTitle:"ඔස්මෝසිස් ගවේෂකය",simOsmosisDesc:"සෛල ආකෘතියක සාන්ද්‍රණ වෙනස්කම් ජල චලනයට බලපාන ආකාරය ගවේෂණය කරන්න.",simChemTitle:"අණු සහ සාන්ද්‍රණ මෙවලම්",simChemDesc:"පරමාණු පරීක්ෂා කර ද්‍රාවණ අගයන් වෙනස් කර සාන්ද්‍රණය තේරුම් ගන්න.",simPhysicsTitle:"චලන ගවේෂකය",simPhysicsDesc:"ත්වරණය සහ කාලය වෙනස් කර ප්‍රවේගය වෙනස් වන ආකාරය බලන්න.",simMathTitle:"ශ්‍රිත සහ ප්‍රස්තාර ගවේෂකය",simMathDesc:"සංගුණකයක් වෙනස් කර ද්විතීය ප්‍රස්තාරය වෙනස් වන ආකාරය බලන්න.",simBioTag:"ජීව විද්‍යාව · අනුකරණය",simChemTag:"රසායන විද්‍යාව · මෙවලම්",simPhysicsTag:"භෞතික විද්‍යාව · අනුකරණය",simMathTag:"සංයුක්ත ගණිතය",featureNotesTitle:"සටහන් සහ PDF",featureNotesDesc:"පුනරීක්ෂණ සටහන් සහ බාගත කළ හැකි ගොනු වෙත පිවිසෙන්න.",featureVideosTitle:"වීඩියෝ පාඩම්",featureVideosDesc:"අදාළ මාතෘකාවේ YouTube පාඩම් විවෘත කර බලන්න.",featurePapersTitle:"පසුගිය ප්‍රශ්න පත්‍ර සහ පාඩම්",featurePapersDesc:"ශ්‍රේණිය සහ විෂය අනුව පුහුණු සම්පත් සංවිධානය කරන්න."}
  };
@@ -280,7 +362,7 @@ function renderCustomSections(){
  try{
    const cfg=JSON.parse(localStorage.getItem("biospaceSiteSettings")||"{}");
    const left=document.querySelector("#footerLeft"),right=document.querySelector("#footerRight");
-   if(left)left.textContent=(cfg.footerLeft||"© "+new Date().getFullYear()+" BioSpace Learning Space · Created by R SF");
+   if(left)left.textContent=(cfg.footerLeft||"© "+new Date().getFullYear()+" BioSpace Learning Space · Created by R. A. Safqy Ahmed · Founder of BioSpace");
    if(right)right.textContent=cfg.footerRight||"Biology · Chemistry · Physics · Combined Mathematics";const footer=document.querySelector("footer");if(footer){footer.style.justifyContent=cfg.footerAlign||"space-between";if(cfg.footerAlign==="left")footer.style.justifyContent="flex-start";if(cfg.footerAlign==="right")footer.style.justifyContent="flex-end";if(cfg.footerBg)footer.style.background=cfg.footerBg;if(cfg.footerColor)footer.style.color=cfg.footerColor;if(cfg.footerExtra){let ex=document.querySelector("#footerExtra");if(!ex){ex=document.createElement("div");ex.id="footerExtra";ex.style.cssText="width:100%;white-space:pre-wrap;margin-top:8px";footer.append(ex)}ex.textContent=cfg.footerExtra}};
  }catch(e){}
 }
@@ -288,7 +370,7 @@ document.querySelector("#year").textContent=new Date().getFullYear();applyLangua
 </script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./config.js"></script><script>
 (function(){
- const cfg=window.BIOSPACE_CONFIG||{};const keys=['biospaceResources','biospaceCustomSections','biospaceSiteSettings','biospaceVideoFolders','biospaceHomeSettings','biospaceHideDemoResources'];let supa;
+ const cfg=window.BIOSPACE_CONFIG||{};const keys=['biospaceResources','biospaceCustomSections','biospaceSiteSettings','biospaceVideoFolders','biospaceHomeSettings','biospaceHideDemoResources','biospaceSlides'];let supa;
  function localState(){const o={};keys.forEach(k=>{try{o[k]=JSON.parse(localStorage.getItem(k)||'null')}catch(e){o[k]=null}});return o}
  function applyState(data){if(!data||typeof data!=='object')return;keys.forEach(k=>{if(Object.prototype.hasOwnProperty.call(data,k)){try{if(data[k]===null||data[k]===undefined)localStorage.removeItem(k);else localStorage.setItem(k,JSON.stringify(data[k]))}catch(e){}}})}
  function applyEditableEmojis(){try{const h=JSON.parse(localStorage.getItem('biospaceHomeSettings')||'{}')||{};const map=[['.showcase-card.bio .subject-art span',h.emojiBiology],['.showcase-card.chem .subject-art span',h.emojiChemistry],['.showcase-card.phys .subject-art span',h.emojiPhysics],['.showcase-card.math .subject-art span',h.emojiMath],['[data-subject="Biology"] .symbol',h.emojiBiology],['[data-subject="Chemistry"] .symbol',h.emojiChemistry],['[data-subject="Physics"] .symbol',h.emojiPhysics],['[data-subject="Combined Mathematics"] .symbol',h.emojiMath],['[data-category="Notes"] .symbol',h.emojiNotes],['[data-category="Videos"] .symbol',h.emojiVideos],['[data-category="Past Papers"] .symbol',h.emojiPapers],['[data-category="Simulations"] .symbol',h.emojiSimulations]];map.forEach(([sel,val])=>{if(val)document.querySelectorAll(sel).forEach(el=>el.textContent=val)});if(h.logoText){const logo=document.querySelector('.brand-mark');if(logo){logo.outerHTML='<span class="brand-mark" style="display:inline-flex;align-items:center;justify-content:center;font-size:25px">'+h.logoText+'</span>'}}if(h.siteName){const n=document.querySelector('.brand-name');if(n)n.textContent=h.siteName}if(h.navLabel){const n=document.querySelector('#navLabel');if(n)n.textContent=h.navLabel}if(h.background)document.documentElement.style.setProperty('--bg',h.background);if(h.accent)document.documentElement.style.setProperty('--green',h.accent);if(h.textColor)document.documentElement.style.setProperty('--text',h.textColor);if(h.backgroundImage)document.body.style.backgroundImage='linear-gradient(#101512cc,#101512cc),url("'+h.backgroundImage.replace(/"/g,'')+'")';}catch(e){}}
@@ -326,7 +408,7 @@ function esc(x){return String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;","
 function link(u,pref){u=String(u||"").trim();if(!u)return"";return/^https?:/i.test(u)?u:pref+u.replace(/^@/,"")}
 function fillPage(k){const c=cfg(),box=document.querySelector("#screen-"+k+" .page-box");if(!box)return;
 if(k==="creator"){const L=[["✉️ Email",c.email?"mailto:"+c.email:"",c.email],["📸 Instagram",link(c.instagram,"https://instagram.com/"),c.instagram],["📘 Facebook",link(c.facebook,"https://facebook.com/"),c.facebook],["🧵 Threads",link(c.threads,"https://threads.net/@"),c.threads],["▶️ YouTube",link(c.youtube,"https://youtube.com/@"),c.youtube],["🌱 BioSpace Instagram",link(c.bioInstagram,"https://instagram.com/"),c.bioInstagram]].filter(x=>x[1]);
-box.innerHTML='<div class="cr-card"><img src="creator.jpg" alt="Creator photo" onerror="this.parentNode.style.display=\'none\'"><div class="cr-cap">THE PERSON BEHIND BIOSPACE</div></div><div class="eyebrow">BUILT INDEPENDENTLY. IN SRI LANKA.</div><h1>Learning, in your own language.</h1><p class="cr-by">Built by <b>'+esc(c.creatorName||"R. A. Safqy Ahmed")+'</b></p><p>'+esc(c.creatorSchool||"A/L Biology student · KM/ST/Muslim Madha Maha Vidyalayam, Sammanthurai")+'</p><p>'+esc(c.creatorBio||"I created BioSpace to help A/L students learn in their own language.")+'</p>'+L.map(x=>'<a class="social" href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+' <span>'+esc(x[2])+'</span></a>').join("")+'<p class="cr-made">Made with ❤ by '+esc(c.creatorName||"R. A. Safqy Ahmed")+'</p>'}
+box.innerHTML='<div class="cr-card"><img src="creator.jpg" alt="Creator photo" onerror="this.parentNode.style.display=\'none\'"><div class="cr-cap">THE PERSON BEHIND BIOSPACE</div></div><div class="eyebrow">BUILT INDEPENDENTLY. IN SRI LANKA.</div><h1>Learning, in your own language.</h1><p class="cr-by">Built by <b>'+esc(c.creatorName||"R. A. Safqy Ahmed")+'</b> · Founder of BioSpace</p><p>'+esc(c.creatorSchool||"A/L Biology student · KM/ST/Muslim Madha Maha Vidyalayam, Sammanthurai")+'</p><p>'+esc(c.creatorBio||"I created BioSpace to help A/L students learn in their own language.")+'</p>'+L.map(x=>'<a class="social" href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[0]+' <span>'+esc(x[2])+'</span></a>').join("")+'<p class="cr-made">Made with ❤ by '+esc(c.creatorName||"R. A. Safqy Ahmed")+' · Founder of BioSpace</p>'}
 if(k==="contact"&&c.email)box.innerHTML='<h1>Contact</h1><p>Questions, corrections or suggestions? Email <a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a>.</p>'}
 const CATS={simulation:"Simulations",sim:"Simulations",note:"Notes",video:"Videos",paper:"Past Papers",lesson:"Lessons",tool:"Interactive Tools",interactive:"Interactive Tools"};
 const SUBJ={biology:"Biology",bio:"Biology",chemistry:"Chemistry",chem:"Chemistry",physics:"Physics",maths:"Combined Mathematics",math:"Combined Mathematics",ict:"ICT"};
@@ -363,7 +445,7 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")d.classList.remove("
 <script>
 (function(){
 const C=window.BIOSPACE_CONFIG||{};let sb=null,user=null,S={profile:{},plan:[],cards:[]},want="",prevScr="language",fi=0,flip=false;
-try{sb=window.supabase.createClient(C.supabaseUrl,C.supabaseAnonKey,{auth:{storageKey:"biospace-student-auth"}})}catch(e){}
+try{sb=window.supabase.createClient(C.supabaseUrl,C.supabaseAnonKey,{auth:{storageKey:"biospace-student-auth"}})}catch(e){}window.__bsStu=sb;
 const $=s=>document.querySelector(s);
 const esc=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const m=document.createElement("div");m.className="auth-modal";
@@ -465,7 +547,7 @@ const rows=[["Instagram",lk(c.instagram,"https://instagram.com/"),c.instagram,SV
 ["Facebook",lk(c.facebook,"https://facebook.com/"),c.facebook,SV('<path d="M14 8h2.5V4H14c-2.5 0-4 1.6-4 4v2.5H8V14h2v6.5h3.5V14h2.7l.6-3.5h-3.3V8.5c0-.3.2-.5.5-.5z"/>')],
 ["BioSpace Instagram",lk(c.bioInstagram,"https://instagram.com/"),c.bioInstagram,SV('<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/>')]].filter(x=>x[1]);
 const box=document.createElement("div");box.className="foot-card";
-box.innerHTML='<div class="cr-card"><img src="creator.jpg" alt="" onerror="this.parentNode.style.display=\'none\'"><div class="cr-cap">THE PERSON BEHIND BIOSPACE</div></div><div class="eyebrow">BUILT INDEPENDENTLY. IN SRI LANKA.</div><div class="fc-by">Built by <b>'+esc(nm)+'</b></div><p>'+esc(c.footerTagline||"A free A/L learning space in English, தமிழ் and සිංහල.")+'</p><div class="fl-list">'+rows.map(x=>'<a class="fl-row" href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[3]+'<span class="fl-t"><b>'+x[0]+'</b><small>'+esc(String(x[2]).replace(/^https?:\/\/(www\.)?/,""))+'</small></span><span class="fl-ar">↗</span></a>').join("")+'</div><div class="fc-made"><img class="fc-avatar" src="creator.jpg" alt="" onerror="this.remove()">Made with ❤ by <a data-pg="creator">'+esc(nm)+'</a></div><div class="fc-pages"><a data-pg="about">About</a><a data-pg="contact">Contact</a><a data-pg="privacy">Privacy</a></div><div class="fc-copy">'+esc(c.copyright||("© "+yr+" BioSpace. All rights reserved."))+'</div>';f.prepend(box)}
+box.innerHTML='<div class="cr-card"><img src="creator.jpg" alt="" onerror="this.parentNode.style.display=\'none\'"><div class="cr-cap">THE PERSON BEHIND BIOSPACE</div></div><div class="eyebrow">BUILT INDEPENDENTLY. IN SRI LANKA.</div><div class="fc-by">Built by <b>'+esc(nm)+'</b></div><p>'+esc(c.footerTagline||"A free A/L learning space in English, தமிழ் and සිංහල.")+'</p><div class="fl-list">'+rows.map(x=>'<a class="fl-row" href="'+esc(x[1])+'" target="_blank" rel="noopener">'+x[3]+'<span class="fl-t"><b>'+x[0]+'</b><small>'+esc(String(x[2]).replace(/^https?:\/\/(www\.)?/,""))+'</small></span><span class="fl-ar">↗</span></a>').join("")+'</div><div class="fc-made"><img class="fc-avatar" src="creator.jpg" alt="" onerror="this.remove()">Made with ❤ by <a data-pg="creator">'+esc(nm)+'</a> · Founder of BioSpace</div><div class="fc-pages"><a data-pg="about">About</a><a data-pg="contact">Contact</a><a data-pg="privacy">Privacy</a></div><div class="fc-copy">'+esc(c.copyright||("© "+yr+" BioSpace. All rights reserved."))+'</div>';f.prepend(box)}
 })();
 </script>
 <script>
@@ -481,5 +563,303 @@ const ls=document.getElementById("langShort");if(ls)new MutationObserver(paint).
 document.addEventListener("click",()=>setTimeout(paint,60));paint();
 })();
 </script>
+<script>
+(function(){
+const C=window.BIOSPACE_CONFIG||{},$=s=>document.querySelector(s);
+const esc=x=>String(x==null?"":x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const cur=()=>{try{return lang}catch(e){return"en"}};
+/* liquid glass background + shine */
+const orb=document.createElement("div");orb.className="lg-orbs";orb.innerHTML="<i></i><i></i><i></i>";document.body.prepend(orb);
+function shine(){document.querySelectorAll(".tile:not([data-sh]),nav.glass:not([data-sh]),.landing-feature:not([data-sh])").forEach(e=>{e.dataset.sh=1;const s=document.createElement("i");s.className="lg-shine";e.append(s)})}
+document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.closest(".tile,nav,.landing-feature");if(!t)return;const r=t.getBoundingClientRect();t.style.setProperty("--mx",(e.clientX-r.left)+"px");t.style.setProperty("--my",(e.clientY-r.top)+"px")},{passive:true});
+new MutationObserver(shine).observe(document.body,{childList:true,subtree:true});shine();
+/* remember medium */
+try{const s=localStorage.getItem("biospaceLang");if(s&&s!==cur()&&["en","ta","si"].includes(s)){lang=s;applyLanguage()}}catch(e){}
+document.querySelectorAll("[data-language]").forEach(b=>b.addEventListener("click",()=>{try{localStorage.setItem("biospaceLang",b.dataset.language)}catch(e){}}));
+/* top-bar language switcher (next to profile button) */
+const NM={en:["EN","English"],ta:["த","தமிழ்"],si:["සි","සිංහල"]};
+const nr=$(".navright"),pb=$("#langQuick");
+if(nr&&pb){const w=document.createElement("div");w.className="lsw";
+w.innerHTML='<button class="nav-pill" id="langSwitch" aria-label="Language" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><b id="lsCode">EN</b></button><div class="lsw-menu" hidden>'+Object.keys(NM).map(k=>'<button type="button" data-l="'+k+'">'+NM[k][1]+"</button>").join("")+"</div>";
+nr.insertBefore(w,pb);const mn=w.querySelector(".lsw-menu");
+const sync=()=>{$("#lsCode").textContent=NM[cur()][0];mn.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b.dataset.l===cur()))};
+w.querySelector("#langSwitch").addEventListener("click",e=>{e.stopPropagation();mn.hidden=!mn.hidden;sync()});
+mn.addEventListener("click",e=>{const b=e.target.closest("[data-l]");if(!b)return;lang=b.dataset.l;try{localStorage.setItem("biospaceLang",lang)}catch(x){}applyLanguage();mn.hidden=true;sync();slides()});
+document.addEventListener("click",()=>{mn.hidden=true;setTimeout(sync,80)});sync()}
+/* simulations playable on the home page */
+const home=$("#screen-language"),grid=$(".simulation-preview");
+if(grid){const hs=document.createElement("div");hs.id="homeSim";hs.className="content-panel glass";hs.hidden=true;grid.after(hs);
+const T=["Osmosis Explorer","Concentration Tool","Motion Explorer","Quadratic graph explorer"];
+grid.querySelectorAll(".preview-card").forEach((c,i)=>{const h=document.createElement("small");h.className="sim-hint";h.textContent="▶ TAP TO TRY";c.append(h);
+c.addEventListener("click",()=>{const real=document.getElementById("inlineTool"),oc=category;real.id="inlineToolX";hs.id="inlineTool";category="Simulations";
+try{openItem(T[i],c.querySelector("p").textContent)}finally{hs.id="homeSim";real.id="inlineTool";category=oc}
+if(!hs.querySelector(".sim-x")){const x=document.createElement("button");x.className="sim-x";x.textContent="✕";x.onclick=()=>hs.hidden=true;hs.prepend(x)}})})}
+/* photo slideshow */
+const L3={en:["LATEST UPDATES","What's happening at BioSpace"],ta:["சமீபத்திய புதுப்பிப்புகள்","BioSpace-இல் நடப்பவை"],si:["නවතම යාවත්කාලීන","BioSpace අලුත්ම තොරතුරු"]};
+let sh=null,idx=0,timer=null;
+function data(){try{const a=JSON.parse(localStorage.getItem("biospaceSlides")||"[]");return Array.isArray(a)?a.filter(x=>x&&x.img):[]}catch(e){return[]}}
+function slides(){const d=data();if(sh){sh.remove();sh=null}clearInterval(timer);if(!d.length||!home)return;
+sh=document.createElement("section");sh.id="bsSlides";const l=L3[cur()]||L3.en;
+sh.innerHTML='<div class="heading"><div class="eyebrow">'+l[0]+"</div><h1>"+l[1]+'</h1></div><div class="sl glass"><div class="sl-track">'+d.map(s=>'<div class="sl-s"><img src="'+esc(s.img)+'" alt="" loading="lazy">'+((s.title||s.text)?'<div class="sl-cap"><b>'+esc(s.title)+"</b><span>"+esc(s.text)+"</span></div>":"")+"</div>").join("")+'</div><button class="sl-nav p" aria-label="Previous">‹</button><button class="sl-nav n" aria-label="Next">›</button></div><div class="sl-dots">'+d.map((_,i)=>"<i data-i='"+i+"'></i>").join("")+"</div>";
+home.append(sh);const tr=sh.querySelector(".sl-track"),dots=sh.querySelectorAll(".sl-dots i");
+const go=n=>{idx=(n+d.length)%d.length;tr.style.transform="translateX(-"+idx*100+"%)";dots.forEach((x,i)=>x.classList.toggle("on",i===idx))};
+sh.querySelector(".p").onclick=()=>{go(idx-1);rs()};sh.querySelector(".n").onclick=()=>{go(idx+1);rs()};dots.forEach(x=>x.onclick=()=>{go(+x.dataset.i);rs()});
+let sx=0;tr.addEventListener("touchstart",e=>sx=e.touches[0].clientX,{passive:true});tr.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));rs()}});
+const rs=()=>{clearInterval(timer);if(d.length>1)timer=setInterval(()=>go(idx+1),4500)};idx=Math.min(idx,d.length-1);go(idx);rs()}
+slides();
+/* student onboarding + profile */
+const OB={en:{t:"Tell us about you",d:"This helps us personalise your dashboard.",n:"Full name",u:"Username",k:"What should we call you?",g:"Grade",m:"Medium",p:"Preferred language for notes & videos",s:"School (optional)",di:"District (optional)",x:"Anything else? (goals, subjects, etc.)",save:"Save & continue",later:"Later",req:"Please fill name, username and nickname.",g12:"Grade 12",g13:"Grade 13",mix:"Any / mixed",hi:"Hi",edit:"✎ Edit profile"},
+ta:{t:"உங்களைப் பற்றி சொல்லுங்கள்",d:"உங்கள் dashboard-ஐ உங்களுக்கேற்ப மாற்ற இது உதவும்.",n:"முழுப் பெயர்",u:"பயனர் பெயர் (Username)",k:"உங்களை எப்படி அழைக்கலாம்?",g:"வகுப்பு",m:"கற்றல் மொழி மூலம்",p:"குறிப்புகள் & வீடியோக்களுக்கான விருப்ப மொழி",s:"பாடசாலை (விருப்பம்)",di:"மாவட்டம் (விருப்பம்)",x:"வேறு ஏதாவது? (இலக்குகள், பாடங்கள் போன்றவை)",save:"சேமித்துத் தொடர்க",later:"பிறகு",req:"பெயர், username, அழைப்புப் பெயர் நிரப்புங்கள்.",g12:"தரம் 12",g13:"தரம் 13",mix:"எதுவும் / கலப்பு",hi:"வணக்கம்",edit:"✎ சுயவிவரம் மாற்று"},
+si:{t:"ඔබ ගැන කියන්න",d:"ඔබේ dashboard එක ඔබට ගැලපෙන ලෙස සකස් කිරීමට.",n:"සම්පූර්ණ නම",u:"පරිශීලක නාමය",k:"ඔබට කුමන නමින් ඇමතිය යුතුද?",g:"ශ්‍රේණිය",m:"මාධ්‍යය",p:"සටහන් සහ වීඩියෝ සඳහා කැමති භාෂාව",s:"පාසල (විකල්ප)",di:"දිස්ත්‍රික්කය (විකල්ප)",x:"වෙනත් දෙයක්? (අරමුණු, විෂයන්)",save:"සුරකින්න",later:"පසුව",req:"නම, username සහ අන්වර්ථ නාමය පුරවන්න.",g12:"12 ශ්‍රේණිය",g13:"13 ශ්‍රේණිය",mix:"ඕනෑම / මිශ්‍ර",hi:"ආයුබෝවන්",edit:"✎ පැතිකඩ සංස්කරණය"}};
+const LN={en:"English",ta:"தமிழ்",si:"සිංහල"};
+let P=null,U=null,seen="";
+const sb=()=>window.__bsStu;
+const modal=document.createElement("div");modal.className="ob-modal";document.body.append(modal);
+function open(first){const o=OB[cur()]||OB.en,p=P||{};const opt=(a,v)=>a.map(([k,l])=>'<option value="'+k+'"'+(String(v)===k?" selected":"")+">"+l+"</option>").join("");
+modal.innerHTML='<div class="ob-box glass"><h2>'+o.t+"</h2><p>"+o.d+"</p><label>"+o.n+'</label><input id="obN" value="'+esc(p.full_name)+'"><div class="ob-row"><div><label>'+o.u+'</label><input id="obU" value="'+esc(p.username)+'" autocapitalize="off"></div><div><label>'+o.k+'</label><input id="obK" value="'+esc(p.nickname)+'"></div></div><div class="ob-row"><div><label>'+o.g+'</label><select id="obG">'+opt([["12",o.g12],["13",o.g13]],p.grade||"12")+"</select></div><div><label>"+o.m+'</label><select id="obM">'+opt(Object.entries(LN),p.medium||cur())+"</select></div></div><label>"+o.p+'</label><select id="obP">'+opt([...Object.entries(LN),["mixed",o.mix]],p.language_pref||p.medium||cur())+'</select><div class="ob-row"><div><label>'+o.s+'</label><input id="obS" value="'+esc(p.school)+'"></div><div><label>'+o.di+'</label><input id="obD" value="'+esc(p.district)+'"></div></div><label>'+o.x+'</label><textarea id="obX" rows="3">'+esc(p.extra)+'</textarea><div class="ob-err" id="obE"></div><div class="ob-act">'+(first?'<button id="obL">'+o.later+"</button>":'<button id="obL">✕</button>')+'<button class="go" id="obSave">'+o.save+"</button></div></div>";
+modal.classList.add("open");const v=id=>modal.querySelector(id).value.trim();
+modal.querySelector("#obL").onclick=()=>modal.classList.remove("open");
+modal.querySelector("#obSave").onclick=async()=>{if(!v("#obN")||!v("#obU")||!v("#obK")){modal.querySelector("#obE").textContent=o.req;return}
+const row={user_id:U.id,email:U.email||"",full_name:v("#obN"),username:v("#obU").toLowerCase(),nickname:v("#obK"),grade:v("#obG"),medium:v("#obM"),language_pref:v("#obP"),school:v("#obS"),district:v("#obD"),extra:v("#obX"),updated_at:new Date().toISOString()};
+const r=await sb().from("student_profiles").upsert(row,{onConflict:"user_id"});if(r.error){modal.querySelector("#obE").textContent=r.error.message.includes("duplicate")?"Username already taken":r.error.message;return}
+P=row;try{localStorage.setItem("biospaceLang",row.medium)}catch(e){}if(row.medium!==cur()){lang=row.medium;applyLanguage()}modal.classList.remove("open");paintDash()}}
+async function onUser(u){U=u||null;if(!U){P=null;seen="";return}if(seen===U.id||!sb())return;seen=U.id;
+try{const r=await sb().from("student_profiles").select("*").eq("user_id",U.id).maybeSingle();if(r.error)return;P=r.data;if(!P)open(true);else paintDash()}catch(e){}}
+function paintDash(){const z=$("#screen-zone");if(!z||!P)return;const t=z.querySelector(".dh-t h1");if(!t)return;const o=OB[cur()]||OB.en;
+t.textContent=o.hi+", "+(P.nickname||P.full_name);if(!z.querySelector(".dh-chips")){const c=document.createElement("div");c.className="dh-chips";c.innerHTML="<span>"+(P.grade==="13"?o.g13:o.g12)+"</span><span>"+(LN[P.medium]||"")+"</span><span>@"+esc(P.username)+'</span><button type="button">'+o.edit+"</button>";c.querySelector("button").onclick=()=>open(false);t.parentElement.append(c)}}
+const zz=$("#screen-zone");if(zz)new MutationObserver(()=>{if(!zz.querySelector(".dh-chips")||zz.querySelector(".dh-t h1")&&P&&!/,/.test(zz.querySelector(".dh-t h1").textContent))paintDash()}).observe(zz,{childList:true,subtree:true});
+const old=window.bsUserChanged;window.bsUserChanged=function(u){if(old)old(u);onUser(u)};
+setTimeout(()=>{try{sb().auth.getSession().then(r=>onUser(r.data.session&&r.data.session.user))}catch(e){}},700);
+})();
+</script>
+
+<script>
+/* ===== Subject doodle background: Biology · Chemistry · Physics · Maths · ICT ===== */
+(function(){
+const g=(x,y,r,c,b)=>'<g class="'+c+'" transform="translate('+x+' '+y+') rotate('+r+')">'+b+"</g>";
+const D=[
+g(90,90,0,"b",'<circle r="34"/><circle cx="-8" cy="-4" r="11"/><circle cx="14" cy="14" r="4"/><circle cx="16" cy="-16" r="3"/><path d="M-26 20q8 8 18 6"/>'),
+g(300,80,18,"b",'<path d="M-18-60C30-40 30-20-18 0C-66 20-66 40-18 60"/><path d="M18-60C-30-40-30-20 18 0C66 20 66 40 18 60"/><path d="M-12-46h24M-14-22h28M-14 22h28M-12 46h24"/>'),
+g(520,95,-12,"c",'<path d="M-8-38V-10L-30 30Q-34 42-22 42H22Q34 42 30 30L8-10V-38M-13-38H13M-21 18H21"/><circle cx="-4" cy="30" r="3"/><circle cx="8" cy="24" r="2"/>'),
+g(80,300,10,"c",'<path d="M30 0L15 26-15 26-30 0-15-26 15-26Z"/><circle r="15"/>'),
+g(205,200,0,"p",'<path d="M-26-44H26M0-44L20 22"/><circle cx="20" cy="32" r="9"/>'),
+g(330,300,0,"p",'<ellipse rx="42" ry="15"/><ellipse rx="42" ry="15" transform="rotate(60)"/><ellipse rx="42" ry="15" transform="rotate(120)"/><circle r="4" class="f"/>'),
+g(545,290,-8,"p",'<path d="M-52 0q13-32 26 0t26 0 26 0 26 0"/>'),
+g(440,185,0,"c",'<circle cx="-22" cy="4" r="9"/><circle cx="12" cy="-16" r="6"/><circle cx="20" cy="18" r="11"/><path d="M-14-1L7-13M-14 9L11 15"/>'),
+g(80,505,-6,"m",'<text class="t" font-size="62">∑</text>'),
+g(225,520,8,"m",'<text class="t" font-size="62">∫</text>'),
+g(405,500,0,"m",'<path d="M-42 0H42M0-42V42M-30-38Q0 74 30-38"/>'),
+g(560,395,10,"m",'<text class="t" font-size="46">π</text>'),
+g(165,410,-10,"m",'<text class="t" font-size="34">√x</text>'),
+g(560,515,0,"i",'<text class="t" font-size="34" font-weight="700">&lt;/&gt;</text>'),
+g(325,590,0,"i",'<rect x="-20" y="-20" width="40" height="40" rx="6"/><rect x="-9" y="-9" width="18" height="18" rx="3"/><path d="M-10-20v-9M0-20v-9M10-20v-9M-10 20v9M0 20v9M10 20v9M-20-10h-9M-20 0h-9M-20 10h-9M20-10h9M20 0h9M20 10h9"/>'),
+g(80,610,0,"i",'<text class="t" font-size="20" letter-spacing="3">01101</text>'),
+g(485,610,0,"i",'<path d="M-24-4Q0-26 24-4M-15 5Q0-8 15 5M-6 14Q0 8 6 14"/><circle cy="20" r="1.8" class="f"/>')
+].join("");
+const d=document.createElement("div");d.className="lg-subj";
+d.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs><pattern id="lgSp" width="640" height="640" patternUnits="userSpaceOnUse">'+D+'</pattern></defs><rect width="100%" height="100%" fill="url(#lgSp)"/></svg>';
+document.body.prepend(d);
+})();
+</script>
+
+<script>
+/* ===== Liquid-glass tab bar =====
+   Add a tab: push one object into TABS (id, labels, icon, run). */
+(function(){
+const $=s=>document.querySelector(s),cur=()=>{try{return lang}catch(e){return"en"}};
+const I=p=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'+p+"</svg>";
+const goHome=sel=>{show("language");setTimeout(()=>{const e=sel&&$(sel);e?e.scrollIntoView({behavior:"smooth",block:"start"}):window.scrollTo({top:0,behavior:"smooth"})},60)};
+const TABS=[
+{id:"home",l:{en:"Home",ta:"முகப்பு",si:"මුල්"},i:I('<path d="M3 11l9-8 9 8v9a1 1 0 01-1 1h-5v-6H9v6H4a1 1 0 01-1-1z"/>'),run:()=>goHome()},
+{id:"study",l:{en:"Study",ta:"படிப்பு",si:"අධ්‍යයනය"},i:I('<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>'),run:()=>window.bsOpenZone&&window.bsOpenZone("dashboard")},
+{id:"chat",l:{en:"Chat",ta:"அரட்டை",si:"චැට්"},i:I('<path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z"/>'),run:()=>{const f=$(".chat-fab");f&&f.click()},keep:1},
+{id:"lang",l:{en:"Language",ta:"மொழி",si:"භාෂාව"},i:I('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/>'),run:()=>sheet("lang"),keep:2},
+{id:"settings",l:{en:"Settings",ta:"அமைப்பு",si:"සැකසුම්"},i:I('<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 00.3 1.8l.1.1a2 2 0 01-2.8 2.8l-.1-.1a1.7 1.7 0 00-1.8-.3 1.7 1.7 0 00-1 1.5V21a2 2 0 01-4 0v-.1a1.7 1.7 0 00-1.1-1.5 1.7 1.7 0 00-1.8.3l-.1.1a2 2 0 01-2.8-2.8l.1-.1a1.7 1.7 0 00.3-1.8 1.7 1.7 0 00-1.5-1H3a2 2 0 010-4h.1a1.7 1.7 0 001.5-1.1 1.7 1.7 0 00-.3-1.8l-.1-.1a2 2 0 012.8-2.8l.1.1a1.7 1.7 0 001.8.3H9a1.7 1.7 0 001-1.5V3a2 2 0 014 0v.1a1.7 1.7 0 001 1.5 1.7 1.7 0 001.8-.3l.1-.1a2 2 0 012.8 2.8l-.1.1a1.7 1.7 0 00-.3 1.8V9a1.7 1.7 0 001.5 1H21a2 2 0 010 4h-.1a1.7 1.7 0 00-1.5 1z"/>'),run:()=>sheet("set"),keep:2},
+{id:"menu",l:{en:"Menu",ta:"மெனு",si:"මෙනුව"},i:I('<path d="M4 7h16M4 12h16M4 17h16"/>'),run:()=>$("#menuBtn")&&$("#menuBtn").click(),keep:1}
+];
+const bar=document.createElement("div");bar.className="tabbar";bar.setAttribute("role","navigation");
+bar.innerHTML='<i class="ind"></i>'+TABS.map(t=>'<button type="button" data-tabid="'+t.id+'">'+t.i+"<span></span></button>").join("");document.body.append(bar);
+const sh=document.createElement("div");sh.className="tb-sheet glass";document.body.append(sh);
+const NM={en:"English",ta:"தமிழ்",si:"සිංහල"},TH=[["dark","Dark","🌙"],["light","Light","☀️"],["orange","Orange","🟠"],["blue","Blue","🔵"]];
+let mode="";
+function sheet(m){if(mode===m){close();return}mode=m;
+sh.innerHTML=m==="lang"?Object.keys(NM).map(k=>'<button type="button" data-l="'+k+'"'+(k===cur()?' class="on"':"")+">"+NM[k]+"<span>"+(k===cur()?"✓":"")+"</span></button>").join(""):
+'<div class="tb-h">Theme</div><div class="tb-th">'+TH.map(t=>'<button type="button" data-th2="'+t[0]+'"><i>'+t[2]+"</i>"+t[1]+"</button>").join("")+'</div><div class="tb-h">Account</div><button type="button" data-acc="1">👤 Account / Login</button>';
+sh.classList.add("open")}
+function close(){mode="";sh.classList.remove("open");restore()}
+sh.addEventListener("click",e=>{const l=e.target.closest("[data-l]"),t=e.target.closest("[data-th2]"),a=e.target.closest("[data-acc]");
+if(l){lang=l.dataset.l;try{localStorage.setItem("biospaceLang",lang)}catch(x){}applyLanguage();label();close()}
+else if(t){const b=document.querySelector('[data-th="'+t.dataset.th2+'"]');b&&b.click();close()}
+else if(a){close();const b=document.querySelector('[data-pg="account"]');if(b)b.click();else window.bsOpenZone&&window.bsOpenZone("dashboard")}});
+document.addEventListener("click",e=>{if(mode&&!e.target.closest(".tb-sheet,.tabbar"))close()});
+const btns=[...bar.querySelectorAll("button")],ind=bar.querySelector(".ind");let active="home";
+const idxOf=id=>Math.max(0,TABS.findIndex(t=>t.id===id));
+function label(){btns.forEach((b,i)=>b.querySelector("span").textContent=TABS[i].l[cur()]||TABS[i].l.en)}
+function place(i){const b=btns[i];ind.style.width=b.offsetWidth+"px";ind.style.transform="translateX("+b.offsetLeft+"px)";btns.forEach((x,j)=>x.classList.toggle("on",j===i))}
+function restore(){place(idxOf(active))}
+function setActive(id){active=id;restore()}
+function fromScreen(){const s=document.querySelector(".screen.active");if(!s)return;if(s.id==="screen-zone")setActive("study");else if(s.id==="screen-simhub")setActive("study");else if(s.id==="screen-chat")setActive("chat");else if(!(s.id==="screen-language"&&active==="sims"))setActive("home")}
+function pick(i){const t=TABS[i];if(!t.keep)setActive(t.id);else place(i);t.run();if(t.keep===1)setTimeout(()=>{if(!mode)restore()},900);if(t.keep===2&&!mode)restore()}
+let down=false,hover=-1;const idxAt=x=>{const r=bar.getBoundingClientRect(),w=(r.width-12)/TABS.length;return Math.max(0,Math.min(TABS.length-1,Math.floor((x-r.left-6)/w)))};
+bar.addEventListener("pointerdown",e=>{down=true;hover=idxAt(e.clientX);bar.classList.add("drag");bar.setPointerCapture(e.pointerId);place(hover)});
+bar.addEventListener("pointermove",e=>{if(!down)return;const i=idxAt(e.clientX);if(i!==hover){hover=i;place(i)}});
+bar.addEventListener("pointerup",e=>{if(!down)return;down=false;bar.classList.remove("drag");pick(idxAt(e.clientX))});
+bar.addEventListener("pointercancel",()=>{down=false;bar.classList.remove("drag");restore()});
+new MutationObserver(fromScreen).observe(document.querySelector("main"),{attributes:true,subtree:true,attributeFilter:["class"]});
+const ap=window.applyLanguage;if(typeof ap==="function")window.applyLanguage=function(){ap.apply(this,arguments);label()};
+document.addEventListener("click",()=>setTimeout(label,80));window.addEventListener("resize",restore);
+label();setTimeout(()=>setActive("home"),50);setTimeout(restore,600);window.bsTabs=TABS;
+/* ===== ask Google login when the site is first opened ===== */
+setTimeout(async()=>{try{const s=window.__bsStu;if(!s)return;const r=await s.auth.getSession();if(r.data&&r.data.session)return;
+const k="biospaceLoginAsked",t=+localStorage.getItem(k)||0;if(Date.now()-t<864e5)return;localStorage.setItem(k,Date.now());
+window.bsOpenZone&&window.bsOpenZone("dashboard")}catch(e){}},1400);
+})();
+</script>
+
+<!-- ===== BioSpace additions: subject background, Simulation Dashboard, Student Chat ===== -->
+<style>
+/* full-page subject background: tweak --fx-op (visibility) and patternTransform scale in the SVG (size) */
+:root{--fx-op:.2}.lg-subj{display:none!important}
+.bs-bottomfx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:radial-gradient(90% 55% at 50% 112%,rgba(24,84,54,.7),transparent 70%),radial-gradient(70% 40% at 0% 0%,rgba(40,100,62,.32),transparent 70%)}
+.bs-bottomfx svg{position:absolute;inset:0;width:100%;height:100%;opacity:var(--fx-op)}
+.bs-bottomfx g{fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}.bs-bottomfx .b{stroke:var(--green)}.bs-bottomfx .c{stroke:var(--mint)}.bs-bottomfx .p{stroke:#9ec5ff}.bs-bottomfx .m{stroke:var(--text)}
+.bs-bottomfx .f{fill:var(--green);stroke:none}.bs-bottomfx text{fill:var(--mint);stroke:none;font:600 12px Inter,-apple-system,"Segoe UI",sans-serif;letter-spacing:.04em}.bs-bottomfx .mt{fill:var(--text)}
+/* refined light theme */
+html[data-theme="light"]{--fx-op:.12}
+html[data-theme="light"] body{background:radial-gradient(ellipse at 8% 0%,#d3ebcb 0,transparent 42%),radial-gradient(ellipse at 96% 14%,#dcd7f3 0,transparent 38%),linear-gradient(#f4f8f1,#e2ebdf)}
+html[data-theme="light"] .bs-bottomfx{background:radial-gradient(90% 50% at 50% 112%,rgba(90,160,110,.28),transparent 70%)}
+html[data-theme="light"] .bs-bottomfx .b{stroke:#2f7a17}html[data-theme="light"] .bs-bottomfx .c,html[data-theme="light"] .bs-bottomfx text{stroke:#0d7a65}html[data-theme="light"] .bs-bottomfx text{fill:#0d7a65;stroke:none}html[data-theme="light"] .bs-bottomfx .p{stroke:#3b63b5}html[data-theme="light"] .bs-bottomfx .m,html[data-theme="light"] .bs-bottomfx .mt{stroke:#2b3a30}html[data-theme="light"] .bs-bottomfx .mt{fill:#2b3a30;stroke:none}html[data-theme="light"] .bs-bottomfx .f{fill:#2f7a17}
+html[data-theme="light"] .glass,html[data-theme="light"] .tile{background:linear-gradient(145deg,rgba(255,255,255,.88),rgba(255,255,255,.6));border:1px solid rgba(40,80,50,.16);box-shadow:0 10px 28px rgba(40,70,50,.1),inset 0 1px #fff}
+html[data-theme="light"] .tabbar{background:linear-gradient(145deg,rgba(255,255,255,.9),rgba(236,245,233,.75));border:1px solid rgba(40,80,50,.2);box-shadow:inset 0 1.5px #fff,0 14px 34px rgba(40,70,50,.22)}
+html[data-theme="light"] .tabbar .ind{background:rgba(58,143,31,.16);border-color:rgba(58,143,31,.38);box-shadow:inset 0 1px #fff}html[data-theme="light"] .tabbar button{color:#2a3b2f;opacity:.9}html[data-theme="light"] .tabbar button.on{color:#2a7512}
+html[data-theme="light"] .tb-sheet,html[data-theme="light"] .drawer-panel{background:rgba(248,251,246,.97)}html[data-theme="light"] .tb-sheet button.on{background:rgba(58,143,31,.14)}
+html[data-theme="light"] .sx-open,html[data-theme="light"] .sc-in button,html[data-theme="light"] .sx-chip.on,html[data-theme="light"] .sc-room.on{background:#2f7a17;color:#fff}html[data-theme="light"] .sx-thumb{background:linear-gradient(135deg,#d6ecd0,#bcd9b4);color:#2f7a17}html[data-theme="light"] .sc-m.me{background:rgba(58,143,31,.14)}
+html[data-theme="light"] .sx-viewer{background:rgba(240,246,238,.98)}
+.sx-bar,.sx-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.sx-bar input,.sx-bar select,.sc-in input{font:inherit;font-size:15px;padding:11px 13px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text);min-width:0}.sx-bar input{flex:1 1 220px}
+.sx-chip,.sc-room{font:inherit;font-size:14px;font-weight:650;padding:9px 14px;border-radius:99px;border:1px solid var(--line);background:var(--panel);color:var(--text);cursor:pointer;display:inline-flex;gap:7px;align-items:center}.sx-chip.on,.sc-room.on{background:var(--green);color:#111;border-color:transparent}.sx-chip small{opacity:.75;font-weight:700}
+.sx-lab{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mint);margin:6px 0 8px;font-weight:700}
+.sx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;padding-bottom:24px}.sx-card{border-radius:22px;overflow:hidden;display:flex;flex-direction:column}.sx-thumb{height:140px;display:flex;align-items:center;justify-content:center;font-size:50px;background:linear-gradient(135deg,#1d3a2a,#14231b);color:var(--green);position:relative}.sx-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sx-body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}.sx-body h3{margin:0;font-size:18px}.sx-body p{margin:0;color:var(--muted);font-size:14px;line-height:1.5;flex:1}.sx-tags{display:flex;gap:6px;flex-wrap:wrap}.sx-tags span{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);color:var(--mint)}
+.sx-open{font:inherit;font-weight:750;border:0;border-radius:14px;padding:12px;background:var(--green);color:#111;cursor:pointer}.sx-empty,.sc-note{padding:22px;border-radius:20px;color:var(--muted);line-height:1.6;text-align:center}
+.sx-viewer{position:fixed;inset:0;z-index:70;background:rgba(8,12,10,.96);display:none;flex-direction:column;padding-top:env(safe-area-inset-top)}.sx-viewer.open{display:flex}.sx-vh{display:flex;gap:8px;align-items:center;padding:10px 12px}.sx-vh b{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sx-vh button,.sx-vh a{font:inherit;font-size:14px;color:var(--text);border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:8px 12px;text-decoration:none;cursor:pointer}.sx-viewer iframe{flex:1;border:0;background:#fff;width:100%;margin-bottom:env(safe-area-inset-bottom)}
+.sc-shell{border-radius:24px;padding:14px;display:flex;flex-direction:column;gap:10px}.sc-rooms{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px}.sc-rooms .sc-room{flex:0 0 auto}
+.sc-log{height:min(52vh,460px);overflow:auto;display:flex;flex-direction:column;gap:9px;padding:6px 2px}.sc-m{max-width:88%;padding:9px 12px;border-radius:16px;background:var(--panel);border:1px solid var(--line);align-self:flex-start;line-height:1.5;font-size:15px;overflow-wrap:anywhere}.sc-m.me{align-self:flex-end;background:rgba(201,242,122,.18)}
+.sc-m .by{font-size:12px;color:var(--mint);font-weight:700;margin-bottom:2px;display:flex;gap:8px;justify-content:space-between}.sc-m .by i{font-style:normal;color:var(--muted);font-weight:500}.sc-m a{color:var(--green);display:block;margin-top:5px;font-size:13px}.sc-m button{font:inherit;font-size:12px;border:0;background:none;color:var(--muted);cursor:pointer;padding:4px 0 0}
+.sc-in{display:flex;gap:8px;flex-wrap:wrap}.sc-in input{flex:1 1 180px}.sc-in .u{flex-basis:100%;font-size:13px}.sc-in button{font:inherit;font-weight:750;border:0;border-radius:14px;padding:11px 18px;background:var(--green);color:#111;cursor:pointer}.sc-st{font-size:13px;color:var(--muted);min-height:18px}
+.bs-zlinks{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+@media(max-width:430px){.sx-grid{grid-template-columns:1fr}.sc-log{height:50vh}}
+
+html{overflow-x:clip}@media(max-width:560px){#navLabel{display:none}}
+.bs-sp{position:fixed;top:84px;left:50%;transform:translateX(-50%);width:min(560px,94%);z-index:48;border-radius:20px;padding:10px;display:none;background:rgba(18,26,21,.96);border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.5)}.bs-sp.open{display:block}
+.bs-sp input{width:100%;font:inherit;font-size:16px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--text)}
+.bs-sr{max-height:58vh;overflow:auto;margin-top:8px;display:flex;flex-direction:column;gap:4px}.bs-sr button{font:inherit;text-align:left;background:none;border:0;border-radius:12px;padding:10px 12px;color:var(--text);cursor:pointer}.bs-sr button:hover,.bs-sr button:focus{background:var(--panel)}.bs-sr b{display:block;font-size:15px}.bs-sr small{color:var(--muted)}.bs-sr .none{padding:12px;color:var(--muted)}
+html[data-theme="light"] .bs-sp{background:#fff;box-shadow:0 18px 44px rgba(40,70,50,.25)}
+html[data-theme="light"] .auth-modal,html[data-theme="light"] .ob-modal{background:rgba(30,45,35,.4)!important}
+html[data-theme="light"] .auth-box,html[data-theme="light"] .ob-box{background:#fff!important;color:#16211a!important;border:1px solid rgba(40,80,50,.18)!important;box-shadow:0 24px 60px rgba(30,50,40,.28)!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+html[data-theme="light"] .auth-box p,html[data-theme="light"] .ob-box p,html[data-theme="light"] .ob-box label{color:#4f5f54!important}
+html[data-theme="light"] .auth-box input,html[data-theme="light"] .ob-box input,html[data-theme="light"] .ob-box select{background:#f3f6f1!important;color:#16211a!important;border:1px solid rgba(40,80,50,.25)!important}
+html[data-theme="light"] .auth-box .chip-btn,html[data-theme="light"] .ob-box .chip-btn{background:#eef4ea!important;color:#16211a!important;border:1px solid rgba(40,80,50,.25)!important}
+html[data-theme="light"] .auth-box #gBtn,html[data-theme="light"] .auth-box #fbBtn,html[data-theme="light"] .auth-box #apBtn{border:1px solid rgba(40,80,50,.28)!important;box-shadow:0 2px 8px rgba(40,70,50,.08)}
+html[data-theme="light"] .auth-box a,html[data-theme="light"] .auth-box [class*="skip"]{color:#2f7a17!important}
+html[data-theme="light"] .zone-tile,html[data-theme="light"] .landing-feature,html[data-theme="light"] .content-panel,html[data-theme="light"] .page-box,html[data-theme="light"] .lsw-menu,html[data-theme="light"] .side,html[data-theme="light"] .lg-card,html[data-theme="light"] .drawer-panel,html[data-theme="light"] .nav-pill,html[data-theme="light"] .menu-btn{background:rgba(255,255,255,.92)!important;color:#16211a!important;border:1px solid rgba(40,80,50,.16)!important}
+.tabbar .ind{transition:transform .55s cubic-bezier(.34,1.45,.5,1),width .55s cubic-bezier(.34,1.45,.5,1),scale .45s cubic-bezier(.34,1.7,.5,1),background .3s,box-shadow .3s}
+.tabbar.drag .ind{transition:scale .35s cubic-bezier(.34,1.7,.5,1),background .3s,box-shadow .3s;scale:1.2 1.4;background:linear-gradient(180deg,rgba(255,255,255,.3),rgba(255,255,255,.07) 55%,rgba(255,255,255,.22));box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6),inset 3px 0 7px -2px rgba(255,110,110,.55),inset -3px 0 7px -2px rgba(100,150,255,.6),inset 0 9px 14px -6px rgba(255,255,255,.6),0 16px 36px rgba(0,0,0,.4)}
+.tabbar{transition:scale .35s cubic-bezier(.34,1.7,.5,1)}.tabbar.drag{scale:1.03}
+.tabbar button svg,.tabbar button span{transition:transform .35s cubic-bezier(.34,1.7,.5,1)}.tabbar.drag button.on svg{transform:scale(1.35) translateY(-1px)}.tabbar.drag button.on span{transform:scale(1.12)}
+html[data-theme="light"] .tabbar.drag .ind{background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.25) 55%,rgba(255,255,255,.6));box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.95),inset 3px 0 7px -2px rgba(255,110,110,.35),inset -3px 0 7px -2px rgba(100,150,255,.4),0 14px 30px rgba(40,70,50,.3)}
+</style>
+<div class="bs-bottomfx" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><defs><pattern id="bsPat" width="360" height="240" patternUnits="userSpaceOnUse" patternTransform="scale(1.5)">
+<g class="b"><path d="M14 40c22-34 44 34 66 0s44-34 66 0"/><path d="M14 40c22 34 44-34 66 0s44 34 66 0"/><path d="M30 24v32M58 20v40M102 20v40M130 24v32" opacity=".6"/></g>
+<g class="c"><path d="M232 18l19 11v22l-19 11-19-11V29z"/><circle cx="232" cy="40" r="9"/><path d="M251 29l16-9M213 51l-14 8"/></g><circle class="f" cx="267" cy="20" r="3"/><circle class="f" cx="199" cy="59" r="3"/>
+<g class="p"><ellipse cx="62" cy="168" rx="30" ry="11"/><ellipse cx="62" cy="168" rx="30" ry="11" transform="rotate(60 62 168)"/><ellipse cx="62" cy="168" rx="30" ry="11" transform="rotate(120 62 168)"/><path d="M110 200q40-70 80 0" stroke-dasharray="3 5"/><path d="M200 168c9-22 18-22 27 0s18 22 27 0 18-22 27 0"/></g><circle class="f" cx="62" cy="168" r="3.5" style="fill:#9ec5ff"/>
+<g class="m"><path d="M300 150l22 0M300 150l0 -22M290 200l30-18v18z" opacity=".7"/></g>
+<g class="m"><path d="M252 214V146M252 214H340"/><path d="M264 208Q296 120 332 208"/><path d="M20 128h56V92z"/><path d="M60 128a16 16 0 0 0-4-10"/></g>
+</pattern></defs><rect width="100%" height="100%" fill="url(#bsPat)"/></svg></div>
+<section class="screen" id="screen-simhub"></section><section class="screen" id="screen-chat"></section>
+<div class="sx-viewer" id="sxViewer"><div class="sx-vh"><b id="sxVT"></b><a id="sxVN" target="_blank" rel="noopener noreferrer">↗</a><button id="sxVC">✕</button></div></div>
+<script>
+(function(){
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],cl=()=>{try{return lang}catch(e){return"en"}};
+const TX={en:{sim:"Simulations",simE:"SIMULATION DASHBOARD",simD:"Every simulation the admin uploads appears here automatically, sorted by subject and medium.",search:"Search simulations",all:"All grades",g:"Grade",open:"Open Simulation",none:"No simulations here yet. New uploads from the admin appear automatically.",subj:"Subject",med:"Medium",back:"Back",chat:"Student Chat",chatE:"STUDENT CHAT",chatD:"Ask questions, discuss lessons and share notes or study links with other students.",ph:"Ask a question or share a note…",lnk:"Optional link to notes or a resource (https://…)",send:"Send",login:"Log in to join the chat",loginD:"Chat is for logged-in students so every message has a real name.",gen:"General",res:"Notes & Resources",del:"Delete",nobk:"Chat backend is not configured (config.js / Supabase).",nosql:"Chat database not set up yet: run supabase_chat_setup.sql in the Supabase SQL Editor.",empty:"No messages yet. Start the conversation!",sent:"Could not send: ",allL:"All languages"},
+ta:{sim:"சிமுலேஷன்கள்",simE:"சிமுலேஷன் டாஷ்போர்டு",simD:"நிர்வாகி பதிவேற்றும் ஒவ்வொரு சிமுலேஷனும் பாடம் மற்றும் மொழி வாரியாக தானாக இங்கே தோன்றும்.",search:"சிமுலேஷன்களைத் தேடு",all:"அனைத்து வகுப்புகள்",g:"தரம்",open:"சிமுலேஷனைத் திற",none:"இங்கே இன்னும் சிமுலேஷன்கள் இல்லை. நிர்வாகி பதிவேற்றியவுடன் தானாக தோன்றும்.",subj:"பாடம்",med:"மொழி மூலம்",back:"பின்னால்",chat:"மாணவர் அரட்டை",chatE:"மாணவர் அரட்டை",chatD:"கேள்விகள் கேளுங்கள், பாடங்களை விவாதியுங்கள், குறிப்புகளையும் இணைப்புகளையும் பகிருங்கள்.",ph:"கேள்வி கேளுங்கள் அல்லது குறிப்பைப் பகிருங்கள்…",lnk:"குறிப்பு / வளத்தின் இணைப்பு (விருப்பம்) https://…",send:"அனுப்பு",login:"அரட்டையில் சேர உள்நுழையவும்",loginD:"ஒவ்வொரு செய்தியிலும் உண்மையான பெயர் இருக்க, உள்நுழைந்த மாணவர்களுக்கு மட்டும் அரட்டை.",gen:"பொது",res:"குறிப்புகள் & வளங்கள்",del:"நீக்கு",nobk:"அரட்டை பின்புலம் அமைக்கப்படவில்லை (config.js / Supabase).",nosql:"அரட்டை தரவுத்தளம் இன்னும் அமைக்கப்படவில்லை: Supabase SQL Editor இல் supabase_chat_setup.sql ஐ இயக்குங்கள்.",empty:"இன்னும் செய்திகள் இல்லை. உரையாடலைத் தொடங்குங்கள்!",sent:"அனுப்ப முடியவில்லை: ",allL:"அனைத்து மொழிகள்"},
+si:{sim:"සමාකරණ",simE:"සමාකරණ උපකරණ පුවරුව",simD:"පරිපාලක උඩුගත කරන සෑම සමාකරණයක්ම විෂය සහ මාධ්‍යය අනුව ස්වයංක්‍රීයව මෙහි දිස්වේ.",search:"සමාකරණ සොයන්න",all:"සියලු ශ්‍රේණි",g:"ශ්‍රේණිය",open:"සමාකරණය විවෘත කරන්න",none:"මෙහි තවම සමාකරණ නැත. පරිපාලක උඩුගත කළ විට ස්වයංක්‍රීයව දිස්වේ.",subj:"විෂය",med:"මාධ්‍යය",back:"ආපසු",chat:"සිසු චැට්",chatE:"සිසු චැට්",chatD:"ප්‍රශ්න අසන්න, පාඩම් සාකච්ඡා කරන්න, සටහන් සහ සබැඳි බෙදාගන්න.",ph:"ප්‍රශ්නයක් අසන්න හෝ සටහනක් බෙදාගන්න…",lnk:"සටහන් / සම්පත් සබැඳිය (විකල්ප) https://…",send:"යවන්න",login:"චැට් එකට එක්වීමට පිවිසෙන්න",loginD:"සෑම පණිවිඩයකම සැබෑ නමක් තිබීමට චැට් පිවිසුණු සිසුන් සඳහා පමණි.",gen:"සාමාන්‍ය",res:"සටහන් සහ සම්පත්",del:"මකන්න",nobk:"චැට් පසුබිම සකසා නැත (config.js / Supabase).",nosql:"චැට් දත්ත ගබඩාව තවම සකසා නැත: Supabase SQL Editor හි supabase_chat_setup.sql ධාවනය කරන්න.",empty:"තවම පණිවිඩ නැත. සංවාදය අරඹන්න!",sent:"යැවීමට නොහැකි විය: ",allL:"සියලු භාෂා"}};
+const t=k=>(TX[cl()]||TX.en)[k]||TX.en[k]||k;
+const el=(g,c,x)=>{const e=document.createElement(g);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const SUBJ=["Biology","Chemistry","Physics","Combined Mathematics"],SYM={Biology:"⌬",Chemistry:"⚗",Physics:"◉","Combined Mathematics":"∑"},LN={en:"English",ta:"தமிழ்",si:"සිංහල"};
+const sn=s=>{try{return subjectNames[cl()][s]}catch(e){return s}};
+$("main").append($("#screen-simhub"),$("#screen-chat"));const fixF=()=>{const f=$("#footerLeft");if(f&&/Created by R\.? ?SF/.test(f.textContent))f.textContent=f.textContent.replace(/Created by R\.? ?SF/,"Created by R. A. Safqy Ahmed · Founder of BioSpace")};fixF();setTimeout(fixF,1500);$$(".chat-fab,.chat-panel").forEach(e=>e.remove());
+function hdr(box,eyebrow,title,desc,zone){box.innerHTML="";const b=el("div","backrow"),bk=el("button","back","← "+t("back"));bk.onclick=()=>zone&&window.bsOpenZone?window.bsOpenZone("dashboard"):show("language");b.append(bk);const h=el("div","heading");h.append(el("div","eyebrow",eyebrow),el("h1",null,title),el("p",null,desc));box.append(b,h)}
+/* ---------- Simulation Dashboard ---------- */
+const ss={sub:"Biology",lg:null,q:"",gr:""};
+function sims(){let a=[];try{a=JSON.parse(localStorage.getItem("biospaceResources")||"[]")}catch(e){}return Array.isArray(a)?a.filter(r=>r&&(r.category==="Simulations"||r.type==="simulation")&&SUBJ.includes(r.subject)):[]}
+const inL=(r,l)=>!r.language||r.language==="all"||r.language===l;
+function viewer(r){const u=String(r.url||"");if(!u)return;const emb=u.startsWith("data:text/html")||/\.html?(?:$|[?#])/i.test(u);if(!emb){if(/^https?:/i.test(u))window.open(u,"_blank","noopener");return}
+const v=$("#sxViewer");v.querySelector("iframe")?.remove();const f=document.createElement("iframe");let same=false;try{same=new URL(u,location.href).origin===location.origin}catch(e){}f.setAttribute("sandbox","allow-scripts allow-forms"+(same?"":" allow-same-origin"));f.allowFullscreen=true;f.title=r.title||"Simulation";f.src=u;v.append(f);$("#sxVT").textContent=r.title||"";const n=$("#sxVN");if(u.startsWith("data:"))n.style.display="none";else{n.style.display="";n.href=u}v.classList.add("open");document.body.style.overflow="hidden"}
+$("#sxVC").onclick=()=>{const v=$("#sxViewer");v.classList.remove("open");v.querySelector("iframe")?.remove();document.body.style.overflow=""};
+function renderSims(){const box=$("#screen-simhub");if(!ss.lg)ss.lg=cl();hdr(box,t("simE"),t("sim"),t("simD"),1);const all=sims();
+const bar=el("div","sx-bar"),q=el("input");q.type="search";q.placeholder=t("search");q.value=ss.q;q.oninput=()=>{ss.q=q.value;cards()};const g=el("select");g.setAttribute("aria-label",t("g"));[["",t("all")],["12",t("g")+" 12"],["13",t("g")+" 13"]].forEach(([v,x])=>{const o=el("option",null,x);o.value=v;g.append(o)});g.value=ss.gr;g.onchange=()=>{ss.gr=g.value;chips();cards()};bar.append(q,g);
+const sr=el("div"),lr=el("div"),grid=el("div","sx-grid");box.append(bar,el("div","sx-lab",t("subj")),sr,el("div","sx-lab",t("med")),lr,grid);
+const gOk=r=>!ss.gr||String(r.grade||"12")===ss.gr;
+function chips(){sr.className=lr.className="sx-chips";sr.innerHTML=lr.innerHTML="";SUBJ.forEach(s=>{const n=all.filter(r=>r.subject===s&&gOk(r)).length,b=el("button","sx-chip"+(s===ss.sub?" on":""),SYM[s]+" "+sn(s));b.append(el("small",null,n));b.onclick=()=>{ss.sub=s;chips();cards()};sr.append(b)});
+["en","ta","si"].forEach(l=>{const n=all.filter(r=>r.subject===ss.sub&&inL(r,l)&&gOk(r)).length,b=el("button","sx-chip"+(l===ss.lg?" on":""),LN[l]);b.append(el("small",null,n));b.onclick=()=>{ss.lg=l;chips();cards()};lr.append(b)})}
+function cards(){grid.innerHTML="";const k=ss.q.trim().toLowerCase(),list=all.filter(r=>r.subject===ss.sub&&inL(r,ss.lg)&&gOk(r)&&(!k||((r.title||"")+" "+(r.description||"")).toLowerCase().includes(k)));
+if(!list.length){grid.append(el("div","sx-empty glass",t("none")));grid.style.display="block";return}grid.style.display="";
+list.forEach(r=>{const c=el("article","sx-card glass"),th=el("div","sx-thumb",SYM[r.subject]);if(r.thumbnailUrl){const i=document.createElement("img");try{i.src=driveImageUrl(r.thumbnailUrl)}catch(e){i.src=r.thumbnailUrl}i.alt="";i.loading="lazy";i.onerror=()=>i.remove();th.append(i)}
+const b=el("div","sx-body"),tg=el("div","sx-tags");tg.append(el("span",null,sn(r.subject)),el("span",null,t("g")+" "+(r.grade||"12")),el("span",null,r.language&&r.language!=="all"?LN[r.language]:t("allL")));
+const o=el("button","sx-open","▶ "+t("open"));o.onclick=()=>viewer(r);b.append(el("h3",null,r.title||t("sim")),tg,el("p",null,r.description||""),o);c.append(th,b);grid.append(c)})}
+chips();cards()}
+async function logged(){try{const r=await window.__bsStu.auth.getSession();return!!(r.data&&r.data.session)}catch(e){return false}}
+async function needLogin(){if(await logged())return false;window.bsOpenZone&&window.bsOpenZone("dashboard");return true}
+async function openSims(){if(await needLogin())return;renderSims();show("simhub")}
+/* ---------- Student Chat (Supabase table: student_chat_messages) ---------- */
+const TB="student_chat_messages",ROOMS=[["general","gen"],["biology","Biology"],["chemistry","Chemistry"],["physics","Physics"],["maths","Combined Mathematics"],["resources","res"]];
+const sbc=()=>window.__bsStu;let room="general",me=null,name="",seen=new Set(),chn=null,poll=null,lastSend=0,els={};
+const rn=r=>SUBJ.includes(r[1])?sn(r[1]):t(r[1]);
+const stat=x=>{if(els.st)els.st.textContent=x||""};
+function addMsg(m){if(!m||seen.has(m.id)||m.room!==room)return;seen.add(m.id);const mine=me&&m.user_id===me.id,d=el("div","sc-m"+(mine?" me":"")),by=el("div","by",m.author||"Student"),tm=new Date(m.created_at),n=new Date();by.append(el("i",null,(tm.toDateString()===n.toDateString()?"":tm.toLocaleDateString([],{day:"numeric",month:"short"})+" ")+tm.toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})));d.dataset.id=m.id;d.append(by,el("div",null,m.body));
+if(m.link_url&&/^https?:\/\//i.test(m.link_url)){const a=el("a",null,"🔗 "+(m.link_title||m.link_url));a.href=m.link_url;a.target="_blank";a.rel="noopener noreferrer nofollow";d.append(a)}
+if(mine){const x=el("button",null,t("del"));x.onclick=async()=>{const r=await sbc().from(TB).delete().eq("id",m.id);if(!r.error)d.remove()};d.append(x)}
+const e=els.log.querySelector(".sc-note");if(e)e.remove();const near=els.log.scrollHeight-els.log.scrollTop-els.log.clientHeight<120;els.log.append(d);if(near||mine)els.log.scrollTop=els.log.scrollHeight}
+function fail(e){const s=String(e&&(e.message||e)||"");stat(/does not exist|schema cache|42P01|PGRST20/i.test(s)||(e&&e.code==="42P01")?t("nosql"):s)}
+async function load(){if(!els.log)return;const r=await sbc().from(TB).select("*").eq("room",room).order("created_at",{ascending:false}).limit(80);if(r.error)return fail(r.error);stat("");(r.data||[]).reverse().forEach(addMsg);if(!seen.size&&!els.log.querySelector(".sc-note"))els.log.append(el("div","sc-note",t("empty")))}
+function live(){if(chn){try{sbc().removeChannel(chn)}catch(e){}chn=null}clearInterval(poll);try{chn=sbc().channel("sc-"+room).on("postgres_changes",{event:"INSERT",schema:"public",table:TB,filter:"room=eq."+room},p=>addMsg(p.new)).on("postgres_changes",{event:"DELETE",schema:"public",table:TB},p=>{const x=p.old&&els.log.querySelector('[data-id="'+p.old.id+'"]');if(x)x.remove()}).subscribe()}catch(e){}
+poll=setInterval(()=>{if($("#screen-chat").classList.contains("active"))load();else clearInterval(poll)},12000)}
+function switchRoom(r){room=r;seen=new Set();els.log.innerHTML="";$$(".sc-room").forEach(b=>b.classList.toggle("on",b.dataset.r===r));load();live()}
+async function openChat(){show("chat");const box=$("#screen-chat");hdr(box,t("chatE"),t("chat"),t("chatD"));els={};const sh=el("div","sc-shell glass");box.append(sh);const s=sbc();
+if(!s){sh.append(el("div","sc-note",t("nobk")));return}
+let u=null;try{const r=await s.auth.getSession();u=r.data&&r.data.session?r.data.session.user:null}catch(e){}me=u;
+if(!u){const n=el("div","sc-note");n.append(el("p",null,t("loginD")));const b=el("button","sx-open",t("login"));b.onclick=()=>window.bsOpenZone&&window.bsOpenZone("dashboard");n.append(b);sh.append(n);return}
+const md=u.user_metadata||{};name=md.full_name||md.name||String(u.email||"Student").split("@")[0];try{const p=await s.from("student_profiles").select("nickname,username,full_name").eq("user_id",u.id).maybeSingle();if(p.data)name=p.data.nickname||p.data.username||p.data.full_name||name}catch(e){}name=String(name).slice(0,40);
+const rooms=el("div","sc-rooms");ROOMS.forEach(r=>{const b=el("button","sc-room"+(r[0]===room?" on":""),rn(r));b.dataset.r=r[0];b.onclick=()=>switchRoom(r[0]);rooms.append(b)});
+els.log=el("div","sc-log");els.st=el("div","sc-st");const f=document.createElement("form");f.className="sc-in";const i=el("input");i.placeholder=t("ph");i.maxLength=1000;i.autocomplete="off";const l=el("input","u");l.placeholder=t("lnk");l.type="url";l.maxLength=500;const sd=el("button",null,t("send"));sd.type="submit";f.append(i,sd,l);
+f.onsubmit=async e=>{e.preventDefault();const body=i.value.trim();if(!body||Date.now()-lastSend<1500)return;let lu=l.value.trim(),lt=null;if(lu){try{const x=new URL(lu);if(!/^https?:$/.test(x.protocol))throw 0;lt=x.hostname}catch(z){return stat(t("lnk"))}}
+lastSend=Date.now();sd.disabled=true;const r=await s.from(TB).insert({room,user_id:u.id,author:name,body,link_url:lu||null,link_title:lt}).select().single();sd.disabled=false;if(r.error)return stat(t("sent")+(/does not exist|schema cache/i.test(r.error.message)?t("nosql"):r.error.message));i.value=l.value="";stat("");addMsg(r.data)};
+sh.append(rooms,els.log,els.st,f);seen=new Set();load();live()}
+/* ---------- top-bar search ---------- */
+Object.assign(TX.en,{sq:"Search simulations, notes, papers…",nr:"No matching resources"});Object.assign(TX.ta,{sq:"சிமுலேஷன், குறிப்புகள், வினாத்தாள்களைத் தேடுங்கள்…",nr:"பொருத்தமான வளங்கள் இல்லை"});Object.assign(TX.si,{sq:"සමාකරණ, සටහන්, ප්‍රශ්න පත්‍ර සොයන්න…",nr:"ගැළපෙන සම්පත් නැත"});
+const nrt=$(".navright");if(nrt){const bt=el("button","nav-pill");bt.id="bsSearchBtn";bt.type="button";bt.setAttribute("aria-label","Search");bt.innerHTML='<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>';nrt.insertBefore(bt,nrt.firstChild);
+const pn=el("div","bs-sp");pn.innerHTML='<input type="search" autocomplete="off" enterkeyhint="search"><div class="bs-sr"></div>';document.body.append(pn);const si=pn.querySelector("input"),sr=pn.querySelector(".bs-sr");let cur=[];
+const closeS=()=>pn.classList.remove("open");
+function all(){let a=[];try{a=JSON.parse(localStorage.getItem("biospaceResources")||"[]")}catch(e){}return Array.isArray(a)?a.filter(r=>r&&r.title):[]}
+function find(q){const tk=q.trim().toLowerCase().split(/\s+/).filter(Boolean);if(!tk.length)return[];const cn=(typeof categoryNames!=="undefined"&&categoryNames[cl()])||{};return all().map(r=>{const h=[r.title,r.description,r.subject,sn(r.subject),r.category,cn[r.category]].join(" ").toLowerCase(),ti=(r.title||"").toLowerCase();return{r,sc:tk.every(x=>h.includes(x))?(ti.includes(tk.join(" "))?3:1):0}}).filter(x=>x.sc).sort((a,b)=>b.sc-a.sc||(b.r.category==="Simulations")-(a.r.category==="Simulations")).slice(0,30).map(x=>x.r)}
+async function openRes(r){closeS();si.value="";if(r.category==="Simulations"||r.type==="simulation"){if(await needLogin())return;viewer(r);return}
+if(r.language&&r.language!=="all"&&r.language!==cl()){lang=r.language;try{localStorage.setItem("biospaceLang",lang)}catch(e){}applyLanguage()}
+grade=String(r.grade||"12");subject=r.subject;category=r.category;updateHub();renderResources();show("resources")}
+function draw(){cur=find(si.value);sr.innerHTML="";if(!si.value.trim())return;if(!cur.length){sr.append(el("div","none",t("nr")));return}
+const cn=(typeof categoryNames!=="undefined"&&categoryNames[cl()])||{};cur.forEach(r=>{const b=el("button");b.append(el("b",null,(r.category==="Simulations"?"🧪 ":"")+r.title),el("small",null,[sn(r.subject),cn[r.category]||r.category,r.language&&r.language!=="all"?LN[r.language]:t("allL")].join(" · ")));b.onclick=()=>openRes(r);sr.append(b)})}
+bt.onclick=e=>{e.stopPropagation();si.placeholder=t("sq");pn.classList.toggle("open");if(pn.classList.contains("open")){si.focus();draw()}};
+si.oninput=draw;si.onkeydown=e=>{if(e.key==="Escape")closeS();if(e.key==="Enter"&&cur[0])openRes(cur[0])};
+document.addEventListener("click",e=>{if(pn.classList.contains("open")&&!e.target.closest(".bs-sp,#bsSearchBtn"))closeS()})}
+const tbr=$(".tabbar"),tin=tbr&&tbr.querySelector(".ind");if(tbr&&tin)tbr.addEventListener("pointermove",e=>{if(!tbr.classList.contains("drag"))return;const r=tbr.getBoundingClientRect(),w=tin.offsetWidth;tin.style.transform="translateX("+Math.max(4,Math.min(r.width-w-4,e.clientX-r.left-w/2))+"px)"});
+/* ---------- wiring ---------- */
+const T=window.bsTabs||[];[["sims",openSims],["chat",openChat]].forEach(([id,fn])=>{const x=T.find(y=>y.id===id);if(x){x.run=fn;delete x.keep}});
+const zg=$(".zone-grid");if(zg)[["sims","🧪","sim"],["chat","💬","chat"]].forEach(([k,ic,tk])=>{const b=el("button","zone-tile");b.dataset.bsgo=k;b.append(document.createTextNode(ic),el("b",null,t(tk)));b.dataset.tk=tk;zg.append(b)});
+const zl=()=>{const z=$("#screen-zone");if(!z||z.querySelector(".bs-zlinks"))return;const d=el("div","bs-zlinks");[["sims","🧪 ","sim"],["chat","💬 ","chat"]].forEach(([k,ic,tk])=>{const b=el("button","sx-chip",ic+t(tk));b.dataset.bsgo=k;b.dataset.tk=tk;b.dataset.ic=ic;d.append(b)});z.prepend(d)};
+const z0=$("#screen-zone");if(z0){new MutationObserver(zl).observe(z0,{childList:true});zl()}
+document.addEventListener("click",e=>{const g=e.target.closest("[data-bsgo]");if(g){g.dataset.bsgo==="sims"?openSims():openChat()}});
+const ap=window.applyLanguage;window.applyLanguage=function(){const r=ap.apply(this,arguments);try{ss.lg=cl();$$("[data-bsgo]").forEach(b=>{const x=b.querySelector("b");const s=t(b.dataset.tk);if(x)x.textContent=s;else b.textContent=(b.dataset.ic||"")+s});const a=$(".screen.active");if(a&&a.id==="screen-simhub")renderSims();else if(a&&a.id==="screen-chat")openChat()}catch(e){}return r};
+})();
+</script>
+
 </body>
 </html>
