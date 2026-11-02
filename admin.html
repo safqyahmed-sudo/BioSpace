@@ -58,25 +58,17 @@ body{background-attachment:fixed!important}footer,#customSections,main{backgroun
 header.glass{background:linear-gradient(145deg,rgba(38,50,42,.78),rgba(18,24,20,.7))!important;-webkit-backdrop-filter:blur(30px) saturate(170%)!important;backdrop-filter:blur(30px) saturate(170%)!important}
 .panel.glass{background:linear-gradient(145deg,rgba(40,52,44,.62),rgba(20,26,22,.5))!important}
 
-</style><style>
-#sbBtn{background:transparent;border:1px solid rgba(255,255,255,.2);color:inherit;border-radius:12px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
-header.glass{position:sticky;top:0;z-index:30}
-#sidebar{position:fixed;left:0;top:0;bottom:0;width:260px;z-index:50;background:#0e1410;border-right:1px solid rgba(255,255,255,.14);padding:20px 14px;display:flex;flex-direction:column;gap:6px;transform:translateX(-100%);transition:transform .22s;overflow:auto}
-body.sb-open #sidebar{transform:none}#sbBg{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.55);display:none}body.sb-open #sbBg{display:block}
-.sb-title{font-size:19px;font-weight:800;margin:0 0 14px 8px}.sb-title span{color:#c9f27a}
-#sidebar .tabs{display:flex;flex-direction:column;gap:4px;margin:0}
-#sidebar .tab{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border-radius:12px;padding:12px;border:0;background:transparent;color:inherit;font:inherit;font-size:15px;cursor:pointer}
-#sidebar .tab.active{background:rgba(201,242,122,.16);color:#e6ffad}#sidebar .tab:hover{background:rgba(255,255,255,.07)}.sbi{width:20px;height:20px;flex:none}
-.sb-link{margin-top:auto;padding:12px;border-radius:12px;border:1px solid rgba(255,255,255,.18);color:inherit;text-decoration:none;font-size:14px;text-align:center}
-@media(min-width:900px){#sidebar{transform:none}body{padding-left:260px}#sbBtn{display:none}body.sb-open #sbBg{display:none}}
-.st-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:14px 0}.st-cards div{border:1px solid rgba(255,255,255,.16);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:4px}.st-cards b{font-size:24px}.st-cards span{font-size:12px;opacity:.7}
-.st-table{width:100%;border-collapse:collapse;font-size:14px}.st-table th,.st-table td{text-align:left;padding:10px 8px;border-bottom:1px solid rgba(255,255,255,.12)}.st-table th{font-size:12px;opacity:.7;text-transform:uppercase;letter-spacing:.06em}
+.adh{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}.adt{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}.adtile{padding:18px;border-radius:20px;color:#fff;display:flex;flex-direction:column;gap:6px}.adtile span{font-size:12px;opacity:.9}.adtile b{font-size:32px}
+.adtile.t1{background:linear-gradient(135deg,#4f3fd0,#7b61f2)}.adtile.t2{background:linear-gradient(135deg,#1d6fd8,#47b0ff)}.adtile.t3{background:linear-gradient(135deg,#17855b,#3cc790)}.adtile.t4{background:linear-gradient(135deg,#d46f17,#ffb15c)}
+.adg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}.adc{padding:18px;border:1px solid var(--line,#ffffff24);border-radius:20px;background:var(--panel,#ffffff10)}.adc h4{margin:0 0 10px}
+.wk{display:flex;gap:8px;align-items:flex-end;height:120px}.wkc{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:4px;font-size:11px;opacity:.8}.wkc i{display:block;width:100%;border-radius:8px 8px 4px 4px;background:var(--green,#c9f27a);min-height:3px}
+.an-row{display:flex;justify-content:space-between;font-size:13px;margin-top:8px}.an-bar{height:8px;border-radius:99px;background:var(--panel,#ffffff10);overflow:hidden;border:1px solid var(--line,#ffffff24)}.an-bar i{display:block;height:100%;background:var(--green,#c9f27a)}.zrow{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line,#ffffff24)}
 </style></head>
 <body><main class="wrap">
 <header class="glass"><div><div class="brand">Bio<span>Space</span> Admin Studio</div><div class="muted">One place to manage notes, videos, resources, bottom sections and footer text.</div></div><div class="actions" style="margin:0"><button id="exportAll">Export backup</button><button id="importAllBtn">Import backup</button><input id="importAllFile" type="file" accept="application/json" hidden></div></header>
 <section class="glass panel"><div class="eyebrow">ADMIN WORKSPACE</div><h1>Manage BioSpace content</h1><p class="muted">This page is separate from the student website. Use the tabs to add learning resources, upload note PDFs, embed YouTube lessons, edit extra bottom cards and change footer text.</p>
 <div class="tabs"><button class="tab active" data-tab="dashboard">Dashboard</button><button class="tab" data-tab="students">Students</button><button class="tab" data-tab="resources">Resources</button><button class="tab" data-tab="folders">Chapter folders</button><button class="tab" data-tab="sections">Home page sections</button><button class="tab" data-tab="home">Home page editor</button><button class="tab" data-tab="footer">Footer settings</button><button class="tab" data-tab="designer">Advanced site designer</button></div></section>
-<section class="glass panel pane active" id="pane-dashboard"><div class="eyebrow">OVERVIEW</div><h2>Dashboard</h2><div class="stat-grid" id="dashStats"></div><h3 style="margin-top:18px">Quick actions</h3><div class="actions" id="dashQuick"></div></section>
+<section class="glass panel pane active" id="pane-dashboard"><div class="eyebrow">OVERVIEW</div><h2>Dashboard</h2><div id="dashRoot"></div></section>
 <section class="glass panel pane" id="pane-students"><div class="eyebrow">STUDENTS</div><h2>Student analytics</h2><div class="stat-grid" id="stuStats"></div><div class="actions"><button class="primary" id="stuRefresh">Refresh</button></div><p class="muted" id="stuMsg"></p><div style="overflow-x:auto"><table class="stu-table" id="stuTable"></table></div></section>
 <section class="glass panel pane" id="pane-resources">
 <div class="eyebrow">LEARNING LIBRARY</div><h2 id="resourceFormTitle">Add a resource</h2>
@@ -87,7 +79,7 @@ body.sb-open #sidebar{transform:none}#sbBg{position:fixed;inset:0;z-index:40;bac
 <div class="field"><label for="rGrade">Grade</label><select id="rGrade"><option value="12">Grade 12</option><option value="13">Grade 13</option></select></div>
 <div class="field"><label for="rSubject">Subject</label><select id="rSubject"><option>Biology</option><option>Chemistry</option><option>Physics</option><option>Combined Mathematics</option><option>ICT</option></select></div>
 <div class="field"><label for="rCategory">Learning section</label><select id="rCategory"><option>Notes</option><option>Videos</option><option>Simulations</option><option>Past Papers</option><option>Lessons</option><option>Interactive Tools</option></select></div>
-<div class="field"><label for="rLanguage">Language</label><select id="rLanguage"><option value="all">All languages</option><option value="en">English</option><option value="ta">தமிழ்</option><option value="si">සිංහල</option></select></div>
+<div class="field"><label for="rLanguage">Medium (which students will see it)</label><select id="rLanguage"><option value="all">All mediums</option><option value="en">English medium</option><option value="ta">Tamil medium</option><option value="si">Sinhala medium</option></select></div>
 <div class="field full"><label for="rUrl">Resource / YouTube URL (video, playlist, hosted simulation)</label><input id="rUrl" type="text" placeholder="YouTube URL, website URL, or Google search words"></div><div class="field"><label for="rVideoFolder">Chapter / topic folder</label><select id="rVideoFolder"><option value="">Unsorted / no folder</option></select></div><div class="field full"><label for="rThumbnailUrl">Thumbnail / cover image URL (Google Drive share link or direct image URL)</label><input id="rThumbnailUrl" type="url" placeholder="https://.../image.jpg or Google Drive share link"></div><div class="field full"><label for="rThumbnailFile">Or upload thumbnail image (optional, max 700 KB)</label><input id="rThumbnailFile" type="file" accept="image/*"></div><div class="field"><label for="rSimulationFile">Simulation HTML / ZIP (optional)</label><input id="rSimulationFile" type="file" accept=".html,.htm,.zip,.pdf" /></div>
 <div class="field full"><label for="rFile">Upload notes file (PDF recommended)</label><input id="rFile" type="file" accept=".pdf,.txt,.doc,.docx,.ppt,.pptx" /></div>
 <div class="field full"><label for="rDescription">Description</label><textarea id="rDescription" maxlength="900" placeholder="What will students learn from this resource?"></textarea></div>
@@ -233,35 +225,7 @@ function fill(){if(dirty)return;const c=cur();Object.keys(M).forEach(k=>{g(k).va
 f.addEventListener("input",()=>{dirty=true});fill();setTimeout(fill,1500);setTimeout(fill,4000);
 f.addEventListener("submit",e=>{e.preventDefault();const c=cur();Object.keys(M).forEach(k=>{c[M[k]]=g(k).value.trim()});c.chatSuggestions=g("pChat").value.split("\n").map(x=>x.trim()).filter(Boolean);c.posters=g("pPosters").value.split("\n").map(x=>x.split("|")).filter(z=>z.length>1&&z[0].trim()&&z[1].trim()).map(z=>({t:z[0].trim(),u:z.slice(1).join("|").trim()}));localStorage.setItem("biospaceSiteSettings",JSON.stringify(c));dirty=false;g("profileStatus").textContent="Saved ✓"})})();
 </script>
-<script>
-(function(){
-const I={resources:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5z"/><path d="M4 19a2 2 0 012-2h13"/>',folders:'<path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>',sections:'<rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/>',home:'<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>',footer:'<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/>',designer:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/>',students:'<circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6 7-6s7 2 7 6"/><path d="M17 4a4 4 0 010 8M22 21c0-3-2-5-4-5.5"/>'};
-const esc=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const tabs=document.querySelector(".tabs"),pd=document.getElementById("pane-designer");
-const st=document.createElement("button");st.className="tab";st.dataset.tab="students";st.textContent="Students";tabs.append(st);
-const pane=document.createElement("section");pane.className="glass panel pane";pane.id="pane-students";
-pane.innerHTML='<div class="eyebrow">STUDENT ANALYTICS</div><h2>How students are doing</h2><p class="muted">Shows each student\'s name, grade and study progress only. No passwords or phone numbers are stored. Mention this in your Privacy Policy.</p><div class="actions"><button id="stRefresh" type="button">Refresh</button></div><div id="stBody"></div>';
-pd.after(pane);
-const bar=document.createElement("aside");bar.id="sidebar";bar.innerHTML='<div class="sb-title">Bio<span>Space</span> Admin</div>';bar.append(tabs);
-const lk=document.createElement("a");lk.className="sb-link";lk.href="index.html";lk.target="_blank";lk.textContent="Open student site ↗";bar.append(lk);
-const bg=document.createElement("div");bg.id="sbBg";document.body.append(bar,bg);
-tabs.querySelectorAll(".tab").forEach(b=>{b.innerHTML='<svg class="sbi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+(I[b.dataset.tab]||"")+"</svg><span>"+esc(b.textContent)+"</span>";
-b.addEventListener("click",()=>{document.body.classList.remove("sb-open");if(b!==st){pane.classList.remove("active");st.classList.remove("active")}})});
-st.addEventListener("click",()=>{tabs.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t===st));document.querySelectorAll(".pane").forEach(p=>p.classList.toggle("active",p===pane));load()});
-document.getElementById("stRefresh").addEventListener("click",load);
-const hd=document.querySelector("header"),btn=document.createElement("button");btn.id="sbBtn";btn.type="button";btn.setAttribute("aria-label","Menu");
-btn.innerHTML='<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
-const w=document.createElement("div");w.style.cssText="display:flex;align-items:center;gap:12px";hd.prepend(w);w.append(btn,w.nextElementSibling);
-btn.addEventListener("click",()=>document.body.classList.toggle("sb-open"));bg.addEventListener("click",()=>document.body.classList.remove("sb-open"));
-async function load(){const box=document.getElementById("stBody");box.textContent="Loading…";
-if(typeof supa==="undefined"||!supa){box.textContent="Sign in as admin first.";return}
-const r=await supa.from("student_data").select("user_id,data,updated_at").order("updated_at",{ascending:false});
-if(r.error){box.innerHTML="<p>Could not load: "+esc(r.error.message)+". Run <b>admin_students.sql</b> in the Supabase SQL Editor once.</p>";return}
-const rows=r.data||[],wk=Date.now()-7*864e5;let tasks=0,done=0,cards=0,act=0;
-rows.forEach(x=>{const d=x.data||{},pl=d.plan||[];tasks+=pl.length;done+=pl.filter(p=>p.done).length;cards+=(d.cards||[]).length;if(new Date(x.updated_at).getTime()>wk)act++});
-box.innerHTML='<div class="st-cards"><div><b>'+rows.length+'</b><span>Students</span></div><div><b>'+act+'</b><span>Active (7 days)</span></div><div><b>'+done+"/"+tasks+'</b><span>Study tasks done</span></div><div><b>'+cards+'</b><span>Flashcards</span></div></div><div style="overflow-x:auto"><table class="st-table"><thead><tr><th>Name</th><th>Grade</th><th>Plan</th><th>Cards</th><th>Last active</th></tr></thead><tbody>'+rows.map(x=>{const d=x.data||{},p=d.profile||{},pl=d.plan||[];return"<tr><td>"+esc(p.name||"Student")+"</td><td>"+esc(p.grade||"-")+"</td><td>"+pl.filter(q=>q.done).length+"/"+pl.length+"</td><td>"+(d.cards||[]).length+"</td><td>"+new Date(x.updated_at).toLocaleDateString()+"</td></tr>"}).join("")+"</tbody></table></div>"}
-})();
-</script>
+
 <script>
 (function(){
 const SV=p=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+"</svg>";
@@ -275,17 +239,29 @@ const bg=document.createElement("div");bg.className="side-bg";document.body.appe
 const mf=document.createElement("button");mf.className="menu-fab";mf.textContent="☰";mf.setAttribute("aria-label","Menu");document.querySelector("header").prepend(mf);
 const rd=k=>{try{const v=JSON.parse(localStorage.getItem(k)||"[]");return Array.isArray(v)?v:[]}catch(e){return[]}};
 const st=(el,arr)=>{el.innerHTML=arr.map(a=>'<div class="stat"><b>'+a[1]+"</b><span>"+a[0]+"</span></div>").join("")};
-function dash(){const r=rd("biospaceResources"),by={};r.forEach(x=>{by[x.category]=(by[x.category]||0)+1});let c={};try{c=JSON.parse(localStorage.getItem("biospaceSiteSettings")||"{}")||{}}catch(e){}
-st($("dashStats"),[["Resources",r.length],["Videos",by.Videos||0],["Notes",by.Notes||0],["Simulations",by.Simulations||0],["Past papers",by["Past Papers"]||0],["Posters",(c.posters||[]).length],["Chapter folders",rd("biospaceVideoFolders").length]]);
-$("dashQuick").innerHTML=[["resources","Add a resource"],["footer","Creator, posters & chatbot"],["home","Edit home page"],["students","View students"]].map(a=>'<button class="primary" data-go="'+a[0]+'">'+a[1]+"</button>").join("")}
+async function dash(){const root=$("dashRoot");if(!root)return;
+const r=rd("biospaceResources"),by={};r.forEach(x=>{by[x.category]=(by[x.category]||0)+1});let c={};try{c=JSON.parse(localStorage.getItem("biospaceSiteSettings")||"{}")||{}}catch(e){}
+let rows=[];const sb=window.__bsSupa;if(sb){try{const q=await sb.from("student_data").select("data,updated_at").limit(500);rows=q.data||[]}catch(e){}}
+const DAY=864e5,sk=t=>new Date(t).toDateString(),now=Date.now();
+const week=[...Array(7)].map((_,i)=>{const t=now-(6-i)*DAY;let m=0;rows.forEach(x=>((x.data&&x.data.sessions)||[]).forEach(q=>{if(sk(q.at)===sk(t))m+=q.m}));return{l:new Date(t).toLocaleDateString("en",{weekday:"short"}).slice(0,2),m}}),mx=Math.max(30,...week.map(d=>d.m));
+const stu=rows.map(x=>{const d=x.data||{},ss=d.sessions||[],p=d.profile||{};return{n:p.nick||p.name||"Student",g:p.grade||"-",w:ss.filter(q=>q.at>now-7*DAY).reduce((a,q)=>a+q.m,0)}});
+const active=stu.filter(q=>q.w>0).length,top=[...stu].sort((a,b)=>b.w-a.w).slice(0,5),idle=stu.filter(q=>q.w===0).slice(0,5);
+const T=[["Students",rows.length,"t1"],["Active this week",active,"t2"],["Resources",r.length,"t3"],["Posters",(c.posters||[]).length,"t4"]];
+const ck=Object.keys(by).sort((a,b)=>by[b]-by[a]),cm=Math.max(1,...Object.values(by));
+root.innerHTML='<div class="adh"><div><h3 style="margin:0">Welcome back, Admin</h3><p class="muted" style="margin:4px 0 0">Here is how BioSpace is doing today.</p></div><div class="actions"><button class="primary" data-go="resources">+ Add resource</button><button class="primary" data-go="students">Students</button></div></div>'+
+'<div class="adt">'+T.map(t=>'<div class="adtile '+t[2]+'"><span>'+t[0]+"</span><b>"+t[1]+"</b></div>").join("")+"</div>"+
+'<div class="adg"><div class="adc"><h4>Student study time (all students)</h4><div class="wk">'+week.map(d=>'<div class="wkc"><i style="height:'+Math.round(d.m/mx*100)+'%"></i>'+d.l+"</div>").join("")+"</div></div>"+
+'<div class="adc"><h4>Resources by type</h4>'+(ck.length?ck.map(k=>'<div class="sb-row"><div class="an-row"><span>'+esc(k)+"</span><b>"+by[k]+'</b></div><div class="an-bar"><i style="width:'+Math.round(by[k]/cm*100)+'%"></i></div></div>').join(""):'<p class="muted">No resources yet.</p>')+"</div>"+
+'<div class="adc"><h4>Most active this week</h4>'+(top.length?top.map((q,i)=>'<div class="zrow"><b>'+(i+1)+'</b><span style="flex:1">'+esc(q.n)+" · G"+esc(q.g)+"</span><b>"+q.w+" min</b></div>").join(""):'<p class="muted">No student data yet. Run admin_students.sql and ask students to use the Timer.</p>')+"</div>"+
+'<div class="adc"><h4>Needs a nudge (no study this week)</h4>'+(idle.length?idle.map(q=>'<div class="zrow"><span style="flex:1">'+esc(q.n)+" · G"+esc(q.g)+"</span></div>").join(""):'<p class="muted">Everyone is active, or there are no students yet.</p>')+"</div></div>"}
 async function load(){const m=$("stuMsg"),T=$("stuTable"),sb=window.__bsSupa;if(!sb){m.textContent="Cloud is not connected. Sign in as admin first.";return}
 m.textContent="Loading…";const r=await sb.from("student_data").select("user_id,data,updated_at").order("updated_at",{ascending:false}).limit(500);
 if(r.error){m.textContent="Could not load: "+r.error.message+" (run admin_students.sql in Supabase first).";return}
 const rows=r.data||[];m.textContent=rows.length?"":"No students have saved data yet.";const wk=Date.now()-7*864e5;let act=0,pc=0,pn=0;
 const body=rows.map(x=>{const d=x.data||{},p=d.plan||[],done=p.filter(q=>q.done).length;if(new Date(x.updated_at)>wk)act++;if(p.length){pc+=done/p.length;pn++}
-return"<tr><td>"+esc((d.profile&&d.profile.name)||"Student")+"</td><td>"+esc((d.profile&&d.profile.grade)||"-")+"</td><td>"+done+"/"+p.length+"</td><td>"+(d.cards||[]).length+"</td><td>"+new Date(x.updated_at).toLocaleDateString()+"</td></tr>"}).join("");
+return"<tr><td>"+esc((d.profile&&d.profile.name)||"Student")+"</td><td>"+esc((d.profile&&d.profile.grade)||"-")+"</td><td>"+esc((d.profile&&d.profile.stream)||"-")+"</td><td>"+esc(({en:"English",ta:"Tamil",si:"Sinhala"})[d.profile&&d.profile.medium]||"-")+"</td><td>"+esc((d.profile&&d.profile.school)||"-")+"</td><td>"+done+"/"+p.length+"</td><td>"+(d.cards||[]).length+"</td><td>"+new Date(x.updated_at).toLocaleDateString()+"</td></tr>"}).join("");
 st($("stuStats"),[["Students",rows.length],["Active in 7 days",act],["Avg plan completion",pn?Math.round(pc/pn*100)+"%":"-"]]);
-T.innerHTML="<tr><th>Name</th><th>Grade</th><th>Plan done</th><th>Flashcards</th><th>Last active</th></tr>"+body}
+T.innerHTML="<tr><th>Name</th><th>Grade</th><th>Stream</th><th>Medium</th><th>School</th><th>Plan done</th><th>Flashcards</th><th>Last active</th></tr>"+body}
 function go(k){const t=document.querySelector('.tabs [data-tab="'+k+'"]');if(t)t.click();side.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("on",b.dataset.go===k));side.classList.remove("open");bg.classList.remove("open");if(k==="dashboard")dash();if(k==="students")load();window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)go(b.dataset.go)});
 mf.onclick=()=>{side.classList.add("open");bg.classList.add("open")};bg.onclick=()=>{side.classList.remove("open");bg.classList.remove("open")};
