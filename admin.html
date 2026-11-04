@@ -67,9 +67,10 @@ header.glass{background:linear-gradient(145deg,rgba(38,50,42,.78),rgba(18,24,20,
 <body><main class="wrap">
 <header class="glass"><div><div class="brand">Bio<span>Space</span> Admin Studio</div><div class="muted">One place to manage notes, videos, resources, bottom sections and footer text.</div></div><div class="actions" style="margin:0"><button id="exportAll">Export backup</button><button id="importAllBtn">Import backup</button><input id="importAllFile" type="file" accept="application/json" hidden></div></header>
 <section class="glass panel"><div class="eyebrow">ADMIN WORKSPACE</div><h1>Manage BioSpace content</h1><p class="muted">This page is separate from the student website. Use the tabs to add learning resources, upload note PDFs, embed YouTube lessons, edit extra bottom cards and change footer text.</p>
-<div class="tabs"><button class="tab active" data-tab="dashboard">Dashboard</button><button class="tab" data-tab="students">Students</button><button class="tab" data-tab="resources">Resources</button><button class="tab" data-tab="folders">Chapter folders</button><button class="tab" data-tab="sections">Home page sections</button><button class="tab" data-tab="home">Home page editor</button><button class="tab" data-tab="footer">Footer settings</button><button class="tab" data-tab="designer">Advanced site designer</button></div></section>
+<div class="tabs"><button class="tab active" data-tab="dashboard">Dashboard</button><button class="tab" data-tab="students">Students</button><button class="tab" data-tab="chat">Chat</button><button class="tab" data-tab="resources">Resources</button><button class="tab" data-tab="folders">Chapter folders</button><button class="tab" data-tab="sections">Home page sections</button><button class="tab" data-tab="home">Home page editor</button><button class="tab" data-tab="footer">Footer settings</button><button class="tab" data-tab="designer">Advanced site designer</button></div></section>
 <section class="glass panel pane active" id="pane-dashboard"><div class="eyebrow">OVERVIEW</div><h2>Dashboard</h2><div id="dashRoot"></div></section>
 <section class="glass panel pane" id="pane-students"><div class="eyebrow">STUDENTS</div><h2>Student analytics</h2><div class="stat-grid" id="stuStats"></div><div class="actions"><button class="primary" id="stuRefresh">Refresh</button></div><p class="muted" id="stuMsg"></p><div style="overflow-x:auto"><table class="stu-table" id="stuTable"></table></div></section>
+<section class="glass panel pane" id="pane-chat"><div class="eyebrow">STUDENT CHAT</div><h2>Student chat</h2><div class="actions" id="chRooms"></div><div class="adg" style="margin-top:12px"><div class="adc" id="chList" style="max-height:420px;overflow:auto"></div><div class="adc"><div id="chThread" style="max-height:340px;overflow:auto"></div><div class="actions" style="margin-top:10px"><input id="chIn" placeholder="Write a reply…" style="flex:1;min-width:160px"><button class="primary" id="chSend">Send</button></div><p class="muted" id="chMsg"></p></div></div></section>
 <section class="glass panel pane" id="pane-resources">
 <div class="eyebrow">LEARNING LIBRARY</div><h2 id="resourceFormTitle">Add a resource</h2>
 <form id="resourceForm"><input type="hidden" id="resourceId">
@@ -229,8 +230,8 @@ f.addEventListener("submit",e=>{e.preventDefault();const c=cur();Object.keys(M).
 <script>
 (function(){
 const SV=p=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+p+"</svg>";
-const IC={dashboard:SV('<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>'),students:SV('<circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6"/><path d="M17 4.5a3.5 3.5 0 010 7M22 20c0-3-1.5-5-4-5.7"/>'),resources:SV('<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5z"/><path d="M4 19a2 2 0 012-2h13"/>'),folders:SV('<path d="M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V6z"/>'),sections:SV('<rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/>'),home:SV('<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>'),footer:SV('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/>'),designer:SV('<path d="M12 3a9 9 0 100 18c1.5 0 2-1 2-2s-1-1.5-1-2.5S14 15 15.5 15H18a3 3 0 003-3c0-5-4-9-9-9z"/><circle cx="7.5" cy="11" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16.5" cy="11" r="1"/>'),site:SV('<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/>')};
-const LBL={dashboard:"Dashboard",students:"Students",resources:"Resources",folders:"Chapter folders",sections:"Home sections",home:"Home page editor",footer:"Footer, creator & chatbot",designer:"Site designer"};
+const IC={dashboard:SV('<rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/>'),students:SV('<circle cx="9" cy="8" r="3.5"/><path d="M2 20c0-4 3-6 7-6s7 2 7 6"/><path d="M17 4.5a3.5 3.5 0 010 7M22 20c0-3-1.5-5-4-5.7"/>'),chat:SV('<path d="M21 12a8 8 0 01-11.6 7.1L3 21l1.9-5.4A8 8 0 1121 12z"/>'),resources:SV('<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5z"/><path d="M4 19a2 2 0 012-2h13"/>'),folders:SV('<path d="M3 6a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V6z"/>'),sections:SV('<rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/>'),home:SV('<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/>'),footer:SV('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 15h18"/>'),designer:SV('<path d="M12 3a9 9 0 100 18c1.5 0 2-1 2-2s-1-1.5-1-2.5S14 15 15.5 15H18a3 3 0 003-3c0-5-4-9-9-9z"/><circle cx="7.5" cy="11" r="1"/><circle cx="12" cy="7.5" r="1"/><circle cx="16.5" cy="11" r="1"/>'),site:SV('<path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 01-1 1H5a1 1 0 01-1-1V7a1 1 0 011-1h5"/>')};
+const LBL={dashboard:"Dashboard",students:"Students",chat:"Student chat",resources:"Resources",folders:"Chapter folders",sections:"Home sections",home:"Home page editor",footer:"Footer, creator & chatbot",designer:"Site designer"};
 const esc=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const $=id=>document.getElementById(id);
 const side=document.createElement("aside");side.className="side";
@@ -262,7 +263,7 @@ const body=rows.map(x=>{const d=x.data||{},p=d.plan||[],done=p.filter(q=>q.done)
 return"<tr><td>"+esc((d.profile&&d.profile.name)||"Student")+"</td><td>"+esc((d.profile&&d.profile.grade)||"-")+"</td><td>"+esc((d.profile&&d.profile.stream)||"-")+"</td><td>"+esc(({en:"English",ta:"Tamil",si:"Sinhala"})[d.profile&&d.profile.medium]||"-")+"</td><td>"+esc((d.profile&&d.profile.school)||"-")+"</td><td>"+done+"/"+p.length+"</td><td>"+(d.cards||[]).length+"</td><td>"+new Date(x.updated_at).toLocaleDateString()+"</td></tr>"}).join("");
 st($("stuStats"),[["Students",rows.length],["Active in 7 days",act],["Avg plan completion",pn?Math.round(pc/pn*100)+"%":"-"]]);
 T.innerHTML="<tr><th>Name</th><th>Grade</th><th>Stream</th><th>Medium</th><th>School</th><th>Plan done</th><th>Flashcards</th><th>Last active</th></tr>"+body}
-function go(k){const t=document.querySelector('.tabs [data-tab="'+k+'"]');if(t)t.click();side.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("on",b.dataset.go===k));side.classList.remove("open");bg.classList.remove("open");if(k==="dashboard")dash();if(k==="students")load();window.scrollTo(0,0)}
+function go(k){const t=document.querySelector('.tabs [data-tab="'+k+'"]');if(t)t.click();side.querySelectorAll("[data-go]").forEach(b=>b.classList.toggle("on",b.dataset.go===k));side.classList.remove("open");bg.classList.remove("open");if(k==="dashboard")dash();if(k==="students")load();if(k==="chat"&&window.bsChatOpen)window.bsChatOpen();window.scrollTo(0,0)}
 document.addEventListener("click",e=>{const b=e.target.closest("[data-go]");if(b)go(b.dataset.go)});
 mf.onclick=()=>{side.classList.add("open");bg.classList.add("open")};bg.onclick=()=>{side.classList.remove("open");bg.classList.remove("open")};
 $("stuRefresh").onclick=load;go("dashboard");setTimeout(dash,2500);
@@ -318,4 +319,32 @@ if(T)new MutationObserver(()=>{if(!T.querySelector(".rich")&&!busy)setTimeout(fe
 })();
 </script>
 
+<script>
+(function(){const $=id=>document.getElementById(id);
+const ROOMS=[["admin","Contact admin"],["doubts","Theory doubt clearing"],["discuss","Student discussion"],["site","Website issues"]];
+const esc=x=>String(x).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let room="admin",stu=null,msgs=[],ch=null,me=null;const sb=()=>window.__bsSupa;
+async function who(){if(me)return me;const r=await sb().auth.getUser();me=r.data&&r.data.user;return me}
+function paintRooms(){$("chRooms").innerHTML=ROOMS.map(r=>'<button class="'+(r[0]===room?"primary":"")+'" data-room="'+r[0]+'">'+r[1]+"</button>").join("")}
+function bubble(m){const mine=m.to_user||m.author==="Admin";return'<div style="margin:6px 0;padding:8px 10px;border-radius:12px;background:'+(mine?"rgba(120,180,80,.18)":"var(--panel,#ffffff10)")+'"><b style="font-size:12px">'+esc(m.author)+'</b> <small style="opacity:.6">'+new Date(m.created_at).toLocaleString()+'</small> <button data-del="'+m.id+'" style="float:right;font-size:11px">Delete</button><div>'+esc(m.body)+"</div></div>"}
+function draw(){const L=$("chList"),T=$("chThread");
+if(room==="admin"){const by={};msgs.forEach(m=>{const k=m.to_user||m.user_id;const o=by[k]=by[k]||{name:"",last:m,n:0};if(!m.to_user)o.name=m.author;o.last=m;o.n++});
+const keys=Object.keys(by).sort((a,b)=>new Date(by[b].last.created_at)-new Date(by[a].last.created_at));
+L.innerHTML="<h4>Students who wrote to admin</h4>"+(keys.length?keys.map(k=>'<div class="zrow" data-stu="'+k+'" style="cursor:pointer;'+(k===stu?"font-weight:700":"")+'"><span style="flex:1">'+esc(by[k].name||"Student")+"<br><small>"+esc(by[k].last.body.slice(0,40))+"</small></span><b>"+by[k].n+"</b></div>").join(""):'<p class="muted">No messages for admin yet.</p>');
+const th=stu?msgs.filter(m=>m.user_id===stu||m.to_user===stu):[];T.innerHTML=stu?(th.map(bubble).join("")||'<p class="muted">No messages.</p>'):'<p class="muted">Pick a student on the left to read and reply. Only you and that student can see this conversation.</p>'}
+else{L.innerHTML='<h4>Moderation</h4><p class="muted">Messages in this group are visible to all students. Delete anything inappropriate.</p>';T.innerHTML=msgs.map(bubble).join("")||'<p class="muted">No messages yet.</p>'}
+T.scrollTop=T.scrollHeight}
+async function load(){const s=sb();if(!s){$("chMsg").textContent="Sign in as admin first.";return}$("chMsg").textContent="Loading…";
+const q=await s.from("student_chat_messages").select("*").eq("room",room).order("created_at",{ascending:true}).limit(300);
+if(q.error){$("chMsg").textContent="Could not load: "+q.error.message+" (run the chat SQL first).";return}msgs=q.data||[];$("chMsg").textContent="";draw()}
+async function send(){const t=$("chIn").value.trim();if(!t)return;if(room==="admin"&&!stu){$("chMsg").textContent="Pick a student first.";return}
+const u=await who(),row={room,user_id:u.id,author:"Admin",body:t};if(room==="admin")row.to_user=stu;
+const r=await sb().from("student_chat_messages").insert(row);if(r.error){$("chMsg").textContent=r.error.message;return}$("chIn").value="";load()}
+document.addEventListener("click",async e=>{const r=e.target.closest("#chRooms [data-room]");if(r){room=r.dataset.room;stu=null;paintRooms();load();return}
+const s=e.target.closest("#chList [data-stu]");if(s){stu=s.dataset.stu;draw();return}
+const d=e.target.closest("#pane-chat [data-del]");if(d&&confirm("Delete this message?")){await sb().from("student_chat_messages").delete().eq("id",d.dataset.del);load()}});
+$("chSend").onclick=send;$("chIn").addEventListener("keydown",e=>{if(e.key==="Enter")send()});
+window.bsChatOpen=function(){paintRooms();load();if(sb()&&!ch){ch=sb().channel("adm-chat").on("postgres_changes",{event:"*",schema:"public",table:"student_chat_messages"},()=>{if($("pane-chat").classList.contains("active"))load()}).subscribe()}};
+})();
+</script>
 </body></html>
